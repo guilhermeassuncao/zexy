@@ -6,6 +6,7 @@ interface Props {
 }
 
 const { title = "Zexy" } = Astro.props;
+const baseUrl = import.meta.env.BASE_URL;
 ---
 
 <!doctype html>
@@ -23,7 +24,7 @@ const { title = "Zexy" } = Astro.props;
       href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href={`${baseUrl}favicon.svg`} />
     <title>{title}</title>
   </head>
   <body class="bg-site-gradient pt-[5.625rem] max-md:pt-0">
