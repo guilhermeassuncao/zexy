@@ -66,7 +66,7 @@ export const featuredItems: FeaturedItem[] = [
   }
 ];
 
-export const offerCategories = ["Todas", "Audio", "Celulares", "Gamer", "Tablets", "Casa Inteligente", "Informática"];
+export const offerCategories = ["Todos", "games", "animes", "series"];
 
 export const products: ProductItem[] = [
   {
