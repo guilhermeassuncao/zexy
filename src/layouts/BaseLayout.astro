@@ -1,0 +1,55 @@
+---
+import "../styles/global.css";
+
+interface Props {
+  title?: string;
+}
+
+const { title = "Zexy" } = Astro.props;
+---
+
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title}</title>
+  </head>
+  <body class="bg-site-gradient pt-[5.625rem] max-md:pt-0">
+    <slot />
+
+    <script type="module" is:inline>
+      import ScrollReveal from "https://esm.sh/scrollreveal@4.0.9";
+
+      if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        const sr = ScrollReveal({
+          distance: "1.5rem",
+          duration: 900,
+          easing: "cubic-bezier(0.22, 1, 0.36, 1)",
+          interval: 80,
+          reset: false,
+          mobile: true
+        });
+
+        sr.reveal(".featured-section", { origin: "bottom" });
+        sr.reveal(".featured-section article", { origin: "bottom", interval: 100 });
+        sr.reveal(".offers-section", { origin: "bottom", delay: 120 });
+        sr.reveal(".offers-section article", { origin: "bottom", interval: 90 });
+        sr.reveal(".news-section", { origin: "bottom", delay: 120 });
+        sr.reveal(".news-section li", { origin: "bottom", interval: 70 });
+        sr.reveal(".site-footer", { origin: "bottom", delay: 140 });
+      }
+    </script>
+  </body>
+</html>

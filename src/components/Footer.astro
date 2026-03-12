@@ -1,0 +1,34 @@
+---
+import Icon from "./Icon.astro";
+import { socialLinks } from "../data/home";
+---
+
+<footer class="site-footer mt-12 border-t border-gray-light py-6 pb-8 max-md:mt-8">
+  <div class="site-container">
+    <div class="flex items-center justify-between gap-4 max-md:flex-col max-md:gap-6">
+      <nav aria-label="Redes sociais" class="flex items-center gap-3 max-md:order-1">
+        {
+          socialLinks.map((item) => (
+            <a
+              href={item.href}
+              target="_blank"
+              rel="noreferrer noopener"
+              aria-label={item.label}
+              class="inline-flex h-[2.375rem] w-[2.375rem] items-center justify-center rounded-full border border-lilac text-lilac hover:bg-lilac hover:text-[#1b1a24] max-md:h-[2.125rem] max-md:w-[2.125rem]"
+            >
+              <Icon name={item.icon} class="h-[1.375rem] w-[1.375rem] fill-current" />
+            </a>
+          ))
+        }
+      </nav>
+
+      <p class="flex-1 text-center text-[0.9375rem] text-lilac max-md:order-2 max-md:text-sm">
+        © 2026 Zexy. Todos os direitos reservados.
+      </p>
+
+      <a href="#" aria-label="Zexy" class="inline-flex min-w-28 items-center justify-end max-md:order-3 max-md:justify-center">
+        <img src="/img/zexy.svg" alt="Zexy" class="h-[2.125rem] w-auto" />
+      </a>
+    </div>
+  </div>
+</footer>

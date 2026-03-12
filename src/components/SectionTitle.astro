@@ -1,0 +1,16 @@
+---
+import Icon from "./Icon.astro";
+
+interface Props {
+  title: string;
+  icon: "offers" | "news";
+  colorClass: string;
+}
+
+const { title, icon, colorClass } = Astro.props;
+---
+
+<h2 class:list={["section-heading", colorClass]}>
+  <Icon name={icon} class="section-icon fill-none stroke-current stroke-2" />
+  {title}
+</h2>

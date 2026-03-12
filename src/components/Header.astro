@@ -1,0 +1,91 @@
+---
+import Icon from "./Icon.astro";
+import { navItems } from "../data/home";
+---
+
+<header class="site-header fixed left-0 top-0 z-10 w-full bg-header-gradient py-5 shadow-header max-md:relative max-md:py-3.5">
+  <div class="site-container">
+    <div class="relative flex items-center justify-between gap-6 whitespace-nowrap max-md:gap-2">
+      <a href="#" aria-label="Zexy" class="inline-flex items-center gap-2.5">
+        <img src="/img/zexy.svg" alt="Zexy" class="h-10 w-auto max-md:h-8" />
+      </a>
+
+      <button
+        type="button"
+        aria-expanded="false"
+        aria-controls="menu-principal"
+        data-menu-toggle
+        class="hidden min-h-9 items-center justify-center rounded-lg border border-gray-light bg-transparent px-3 py-1.5 font-orbitron text-[0.8125rem] font-bold lowercase text-white max-md:inline-flex"
+      >
+        menu
+      </button>
+
+      <nav
+        id="menu-principal"
+        aria-label="Menu principal"
+        data-menu
+        class="flex max-w-full items-center gap-6 font-orbitron text-[1.0625rem] font-bold lowercase max-lg:gap-3.5 max-lg:text-[0.9375rem] max-md:pointer-events-none max-md:absolute max-md:right-0 max-md:top-[calc(100%+0.5rem)] max-md:z-30 max-md:w-[min(18rem,calc(100vw-2rem))] max-md:translate-y-2 max-md:flex-col max-md:items-stretch max-md:gap-1.5 max-md:rounded-xl max-md:border max-md:border-gray-light max-md:bg-panel-gradient max-md:p-2 max-md:text-sm max-md:opacity-0 max-md:shadow-panel max-md:transition max-md:duration-200"
+      >
+        {
+          navItems.map((item) => (
+            <a
+              href={item.href}
+              class:list={[
+                "inline-flex min-h-10 flex-shrink-0 items-center gap-[0.5625rem] px-2.5 py-[0.4375rem] transition duration-200 hover:-translate-y-0.5 max-lg:min-h-[2.125rem] max-lg:px-2 max-lg:py-1 max-md:w-full max-md:justify-start max-md:gap-2 max-md:px-2 max-md:py-1.5",
+                item.color,
+                item.glow
+              ]}
+            >
+              <Icon name={item.icon} class="h-9 w-9 shrink-0 max-lg:h-7 max-lg:w-7 max-md:h-[1.375rem] max-md:w-[1.375rem]" />
+              {item.label}
+            </a>
+          ))
+        }
+      </nav>
+    </div>
+  </div>
+</header>
+
+<script>
+  const menuToggle = document.querySelector("[data-menu-toggle]");
+  const header = document.querySelector(".site-header");
+  const menu = document.querySelector("[data-menu]");
+  const mobileMq = window.matchMedia("(max-width: 48.75rem)");
+
+  if (menuToggle instanceof HTMLButtonElement && header instanceof HTMLElement && menu instanceof HTMLElement) {
+    const closeMenu = () => {
+      header.dataset.menuOpen = "false";
+      menuToggle.setAttribute("aria-expanded", "false");
+      menuToggle.textContent = "menu";
+      menu.classList.add("max-md:pointer-events-none", "max-md:translate-y-2", "max-md:opacity-0");
+      menu.classList.remove("max-md:pointer-events-auto", "max-md:translate-y-0", "max-md:opacity-100");
+    };
+
+    const openMenu = () => {
+      header.dataset.menuOpen = "true";
+      menuToggle.setAttribute("aria-expanded", "true");
+      menuToggle.textContent = "fechar";
+      menu.classList.remove("max-md:pointer-events-none", "max-md:translate-y-2", "max-md:opacity-0");
+      menu.classList.add("max-md:pointer-events-auto", "max-md:translate-y-0", "max-md:opacity-100");
+    };
+
+    closeMenu();
+
+    menuToggle.addEventListener("click", () => {
+      const isOpen = header.dataset.menuOpen === "true";
+      if (isOpen) closeMenu();
+      else openMenu();
+    });
+
+    document.addEventListener("click", (event) => {
+      if (!mobileMq.matches || header.dataset.menuOpen !== "true") return;
+      if (menuToggle.contains(event.target)) return;
+      if (menu.contains(event.target)) return;
+      closeMenu();
+    });
+
+    mobileMq.addEventListener("change", (event) => {
+      if (!event.matches) closeMenu();
+    });
+  }
+</script>

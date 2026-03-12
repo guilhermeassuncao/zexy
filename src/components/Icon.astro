@@ -1,0 +1,92 @@
+---
+interface Props {
+  name:
+    | "home"
+    | "games"
+    | "animes"
+    | "series"
+    | "offers"
+    | "news"
+    | "instagram"
+    | "tiktok"
+    | "x";
+  class?: string;
+}
+
+const { name, class: className = "h-9 w-9" } = Astro.props;
+---
+
+{
+  name === "home" && (
+    <svg class={className} viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="M3.8 12.5 12 5.8l8.2 6.7" stroke="currentColor"></path>
+      <path d="M6.8 10.8V19h10.4v-8.2" stroke="currentColor"></path>
+      <path d="M10.5 19v-4.8h3V19" stroke="currentColor"></path>
+    </svg>
+  )
+}
+{
+  name === "games" && (
+    <svg class={className} viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="M7 9.5h10c.602 0 1.196.1355 1.738.3964.543.261.9994.6412 1.3743 1.1122.3749.471.6386 1.0206.7715 1.6077.133.5872.1317 1.1967-.0038 1.7837l-.5 2c-.1172.4807-.3515.9249-.682 1.2931s-.7469.6489-1.2122.8172c-.4652.1683-.9649.2189-1.4544.1473-.4896-.0716-.9538-.2631-1.3514-.5576l-2.5-1.8h-2.4l-2.5 1.8c-.3976.2945-.8618.486-1.3514.5576-.4895.0716-.9892.021-1.4544-.1473-.4653-.1683-.8817-.449-1.2122-.8172s-.5648-.8124-.682-1.2931l-.5-2c-.1355-.587-.1368-1.1965-.0038-1.7837.1329-.5871.3966-1.1367.7715-1.6077s.8313-.8512 1.3743-1.1122c.542-.2609 1.136-.3964 1.738-.3964Z" stroke="currentColor"></path>
+      <path d="M6 13.6h3.2M7.6 12v3.2" stroke="currentColor"></path>
+      <path d="M14.85 13.7a.85.85 0 1 0 0-1.7.85.85 0 0 0 0 1.7Z" stroke="currentColor"></path>
+      <path d="M17.7 15.65a.85.85 0 1 0 0-1.7.85.85 0 0 0 0 1.7Z" stroke="currentColor"></path>
+    </svg>
+  )
+}
+{
+  name === "animes" && (
+    <svg class={className} viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="M12 15.2a4.2 4.2 0 1 0 0-8.4 4.2 4.2 0 0 0 0 8.4Z" stroke="currentColor"></path>
+      <path d="M10.4 11.15a.55.55 0 1 0 0-1.1.55.55 0 0 0 0 1.1ZM13.6 11.15a.55.55 0 1 0 0-1.1.55.55 0 0 0 0 1.1Z" fill="currentColor" stroke="currentColor"></path>
+      <path d="M10.5 12.5h3" stroke="currentColor"></path>
+      <path d="M8.8 15.2 7 18.2M15.2 15.2l1.8 3M12 15.2v3.6M6.8 8.8l-2-1.2M17.2 8.8l2-1.2" stroke="currentColor"></path>
+    </svg>
+  )
+}
+{
+  name === "series" && (
+    <svg class={className} viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="M18 6.5H6A2 2 0 0 0 4 8.5v7A2 2 0 0 0 6 17.5h12a2 2 0 0 0 2-2v-7a2 2 0 0 0-2-2Z" stroke="currentColor"></path>
+      <path d="m9 10 6 2-6 2v-4Z" stroke="currentColor"></path>
+    </svg>
+  )
+}
+{
+  name === "offers" && (
+    <svg class={className} viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="M4.5 9.5v-3h10l5 5-5 5h-10v-3" stroke="currentColor"></path>
+      <path d="M8.5 10h4M7 13h4" stroke="currentColor"></path>
+    </svg>
+  )
+}
+{
+  name === "news" && (
+    <svg class={className} viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="M5 6.5h11.5A2.5 2.5 0 0 1 19 9v8.5H7.5A2.5 2.5 0 0 1 5 15V6.5Z" stroke="currentColor"></path>
+      <path d="M8 10h7.5M8 13h5M16 6.5v8" stroke="currentColor"></path>
+    </svg>
+  )
+}
+{
+  name === "instagram" && (
+    <svg class={className} viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2Zm0 1.5A4.25 4.25 0 0 0 3.5 7.75v8.5a4.25 4.25 0 0 0 4.25 4.25h8.5a4.25 4.25 0 0 0 4.25-4.25v-8.5a4.25 4.25 0 0 0-4.25-4.25h-8.5ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 1.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7Zm5.25-1.88a1.13 1.13 0 1 1 0 2.26 1.13 1.13 0 0 1 0-2.26Z"></path>
+    </svg>
+  )
+}
+{
+  name === "tiktok" && (
+    <svg class={className} viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M14.5 3c.55 2.3 1.9 3.7 4.1 4.1v2.1a8.1 8.1 0 0 1-4.1-1.1v6.1a5.2 5.2 0 1 1-5.2-5.2c.35 0 .7.04 1.03.1v2.2a3 3 0 1 0 2 2.9V3h2.17Z"></path>
+    </svg>
+  )
+}
+{
+  name === "x" && (
+    <svg class={className} viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M18.9 2H22l-6.77 7.73L23.2 22h-6.26l-4.9-6.46L6.38 22H3.27l7.24-8.28L.8 2h6.34l4.43 5.86L18.9 2Zm-1.1 18h1.73L6.2 3.9H4.34L17.8 20Z"></path>
+    </svg>
+  )
+}

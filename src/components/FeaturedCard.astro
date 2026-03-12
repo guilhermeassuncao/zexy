@@ -1,0 +1,50 @@
+---
+import type { FeaturedItem } from "../data/home";
+
+interface Props {
+  item: FeaturedItem;
+}
+
+const { item } = Astro.props;
+
+const categoryMap = {
+  games: {
+    text: "text-red",
+    stripe: "bg-red"
+  },
+  animes: {
+    text: "text-purple",
+    stripe: "bg-purple"
+  },
+  series: {
+    text: "text-orange",
+    stripe: "bg-orange"
+  }
+} as const;
+
+const sizeMap = {
+  large: "min-h-[32.8125rem]",
+  medium: "min-h-[15.8125rem]",
+  small: "min-h-[10.0625rem]"
+} as const;
+---
+
+<article
+  class:list={[
+    "group relative flex items-end overflow-hidden rounded-[0.625rem] bg-cover bg-center",
+    sizeMap[item.size]
+  ]}
+  style={`background-image:url('${item.image}')`}
+>
+  <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+  <span class:list={["absolute bottom-0 left-0 h-[5.75rem] w-2", categoryMap[item.category].stripe]}></span>
+  <div class="relative z-10 p-5">
+    <span class:list={["mb-2.5 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.06em]", categoryMap[item.category].text]}>
+      {item.category}
+      <span class:list={["h-[0.6875rem] w-[0.6875rem] rounded-sm", categoryMap[item.category].stripe]}></span>
+    </span>
+    <h2 class="max-w-[32.5rem] text-base font-extrabold leading-tight text-white max-md:text-sm">
+      {item.title}
+    </h2>
+  </div>
+</article>

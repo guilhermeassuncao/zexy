@@ -1,0 +1,24 @@
+---
+import FeaturedCard from "./FeaturedCard.astro";
+import { featuredItems } from "../data/home";
+
+const [mainCard, secondCard, thirdCard, fourthCard, fifthCard] = featuredItems;
+---
+
+<section class="featured-section mt-10 pt-1.5 max-md:mt-4" aria-label="Destaques">
+  <div class="grid grid-cols-[1.35fr_1fr_1fr] gap-4 max-md:grid-cols-1">
+    <div>
+      <FeaturedCard item={mainCard} />
+    </div>
+
+    <div class="grid gap-4">
+      <FeaturedCard item={secondCard} />
+      <FeaturedCard item={thirdCard} />
+    </div>
+
+    <div class="grid gap-4">
+      <FeaturedCard item={fourthCard} />
+      <FeaturedCard item={fifthCard} />
+    </div>
+  </div>
+</section>

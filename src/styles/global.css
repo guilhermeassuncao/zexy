@@ -1,0 +1,63 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply min-h-screen bg-site-gradient font-sans text-white;
+  }
+
+  a {
+    @apply transition-all duration-200 ease-out;
+  }
+}
+
+@layer components {
+  .site-container {
+    @apply mx-auto w-[min(68.75rem,92vw)] max-w-none md:w-[min(68.75rem,92vw)] max-md:w-[min(68.75rem,calc(100vw-2.5rem))];
+  }
+
+  .section-heading {
+    @apply mb-3 inline-flex items-center gap-2.5 font-orbitron text-[1.75rem] font-extrabold lowercase tracking-[-0.02em] md:text-[2rem];
+  }
+
+  .section-icon {
+    @apply h-7 w-7 shrink-0 md:h-11 md:w-11;
+  }
+
+  .chip-button {
+    @apply rounded-lg bg-transparent px-3 py-2.5 text-sm font-medium text-gray-light transition hover:bg-gray-light hover:text-white;
+  }
+
+  .chip-button-active {
+    @apply bg-gray-light font-bold text-white;
+  }
+
+  .menu-link-glow-green:hover {
+    filter: drop-shadow(0 0 0.375rem rgba(102, 248, 89, 0.45));
+  }
+
+  .menu-link-glow-red:hover {
+    filter: drop-shadow(0 0 0.375rem rgba(248, 115, 89, 0.45));
+  }
+
+  .menu-link-glow-purple:hover {
+    filter: drop-shadow(0 0 0.375rem rgba(115, 89, 248, 0.45));
+  }
+
+  .menu-link-glow-orange:hover {
+    filter: drop-shadow(0 0 0.375rem rgba(248, 182, 89, 0.45));
+  }
+
+  .menu-link-glow-blue:hover {
+    filter: drop-shadow(0 0 0.375rem rgba(77, 163, 255, 0.45));
+  }
+}

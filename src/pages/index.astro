@@ -1,0 +1,20 @@
+---
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+import FeaturedSection from "../components/FeaturedSection.astro";
+import NewsSection from "../components/NewsSection.astro";
+import OffersSection from "../components/OffersSection.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="Zexy">
+  <Header />
+
+  <main class="site-main site-container">
+    <FeaturedSection />
+    <OffersSection />
+    <NewsSection />
+  </main>
+
+  <Footer />
+</BaseLayout>
