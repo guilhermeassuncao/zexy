@@ -1,25 +1,45 @@
 ---
 import ProductCard from "./ProductCard.astro";
 import SectionTitle from "./SectionTitle.astro";
-import { offerCategories, products } from "../data/home";
+import type { OfferListItem } from "../data/content";
+
+interface Props {
+  title?: string;
+  categories?: string[];
+  items?: OfferListItem[];
+  sectionId?: string;
+}
+
+const { title = "ofertas", categories, items = [], sectionId = "ofertas" } = Astro.props;
+const visibleCategories = categories ?? [];
+const showFilters = categories !== undefined;
+const showTitle = title.trim().length > 0;
 ---
 
-<section id="ofertas" class="offers-section mt-20 max-md:mt-12" aria-label="Ofertas da semana">
-  <div class="mb-3.5 flex items-center justify-between gap-3">
-    <SectionTitle title="ofertas" icon="offers" colorClass="text-blue" />
-  </div>
+<section id={sectionId} class="offers-section mt-14 max-md:mt-8" aria-label={showTitle ? title : "ofertas"}>
+  {
+    showTitle && (
+      <div class="mb-3.5 flex items-center justify-between gap-3">
+        <SectionTitle title={title} icon="offers" colorClass="text-blue" />
+      </div>
+    )
+  }
 
-  <div class="mb-4 flex flex-wrap gap-2 max-md:flex-nowrap max-md:overflow-x-auto max-md:pb-1">
-    {
-      offerCategories.map((category, index) => (
-        <button type="button" class:list={["chip-button", index === 0 && "chip-button-active"]}>
-          {category}
-        </button>
-      ))
-    }
-  </div>
+  {
+    showFilters && visibleCategories.length > 0 && (
+      <div class="mb-4 flex flex-wrap gap-2 max-md:flex-nowrap max-md:overflow-x-auto max-md:pb-1">
+        {
+          visibleCategories.map((category, index) => (
+            <button type="button" class:list={["chip-button", index === 0 && "chip-button-active"]}>
+              {category}
+            </button>
+          ))
+        }
+      </div>
+    )
+  }
 
   <div class="grid grid-cols-4 gap-x-4 gap-y-7 max-md:grid-cols-1">
-    {products.map((item) => <ProductCard item={item} />)}
+    {items.map((item) => <ProductCard item={item} />)}
   </div>
 </section>

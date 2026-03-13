@@ -1,11 +1,17 @@
 ---
 import FeaturedCard from "./FeaturedCard.astro";
-import { featuredItems } from "../data/home";
+import type { FeaturedItem } from "../data/home";
 
-const [mainCard, secondCard, thirdCard, fourthCard, fifthCard] = featuredItems;
+interface Props {
+  items: FeaturedItem[];
+  label?: string;
+}
+
+const { items, label = "Destaques" } = Astro.props;
+const [mainCard, secondCard, thirdCard, fourthCard, fifthCard] = items;
 ---
 
-<section class="featured-section mt-10 pt-1.5 max-md:mt-4" aria-label="Destaques">
+<section class="featured-section mt-8 pt-1.5 max-md:mt-3" aria-label={label}>
   <div class="grid grid-cols-[1.35fr_1fr_1fr] gap-4 max-md:grid-cols-1">
     <div>
       <FeaturedCard item={mainCard} />

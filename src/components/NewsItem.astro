@@ -1,36 +1,49 @@
 ---
-import type { NewsItem as NewsItemType } from "../data/home";
+import type { NewsListItem } from "../data/content";
 
 interface Props {
-  item: NewsItemType;
+  item: NewsListItem;
 }
 
 const { item } = Astro.props;
 
 const categoryMap = {
-  games: "text-red before:bg-red",
-  animes: "text-purple before:bg-purple",
-  series: "text-orange before:bg-orange"
+  games: {
+    label: "text-red before:bg-red",
+    hover: "hover:text-red"
+  },
+  animes: {
+    label: "text-purple before:bg-purple",
+    hover: "hover:text-purple"
+  },
+  series: {
+    label: "text-orange before:bg-orange",
+    hover: "hover:text-orange"
+  }
 } as const;
 ---
 
 <li class="grid grid-cols-[10.75rem_1fr] gap-[1.125rem] border-b border-gray-light py-[1.125rem] last:border-b-0 max-md:grid-cols-1 max-md:gap-4 max-md:py-4">
-  <img
-    class="aspect-video w-full rounded-lg object-cover"
-    src={item.image}
-    alt={item.alt}
-    loading="lazy"
-  />
+  <a href={item.href}>
+    <img
+      class="aspect-video w-full rounded-lg object-cover"
+      src={item.image}
+      alt={item.alt}
+      loading="lazy"
+    />
+  </a>
   <article>
     <p
       class:list={[
         "mb-0 inline-flex items-center gap-[0.4375rem] text-xs font-extrabold uppercase leading-none tracking-[0.06em] before:h-2.5 before:w-2.5 before:rounded-sm before:content-[''] max-md:text-[0.8125rem]",
-        categoryMap[item.category]
+        categoryMap[item.category].label
       ]}
     >
       {item.category}
     </p>
-    <h3 class="mt-2 mb-[0.5625rem] text-base font-extrabold leading-tight text-white">{item.title}</h3>
+    <h3 class="mt-2 mb-[0.5625rem] text-base font-extrabold leading-tight text-white">
+      <a href={item.href} class:list={["transition", categoryMap[item.category].hover]}>{item.title}</a>
+    </h3>
     <p class="text-[0.8125rem] lowercase leading-tight text-lilac max-md:text-[0.75rem]">{item.time}</p>
   </article>
 </li>

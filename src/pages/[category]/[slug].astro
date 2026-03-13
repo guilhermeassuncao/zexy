@@ -1,0 +1,80 @@
+---
+import { getCollection, render, type CollectionEntry } from "astro:content";
+import Footer from "../../components/Footer.astro";
+import Header from "../../components/Header.astro";
+import Icon from "../../components/Icon.astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+type EntryProps =
+  | { kind: "offer"; entry: CollectionEntry<"offers"> }
+  | { kind: "news"; entry: CollectionEntry<"news"> };
+
+export async function getStaticPaths() {
+  const [offers, news] = await Promise.all([getCollection("offers"), getCollection("news")]);
+
+  return [
+    ...offers.map((entry) => ({
+      params: { category: entry.data.category, slug: entry.slug },
+      props: { kind: "offer", entry }
+    })),
+    ...news.map((entry) => ({
+      params: { category: entry.data.category, slug: entry.slug },
+      props: { kind: "news", entry }
+    }))
+  ];
+}
+
+const { kind, entry } = Astro.props as EntryProps;
+const { Content } = await render(entry);
+
+const accentMap = {
+  games: "text-red border-red/40 bg-red/10",
+  animes: "text-purple border-purple/40 bg-purple/10",
+  series: "text-orange border-orange/40 bg-orange/10"
+} as const;
+
+const pageTitle = `${entry.data.title} | Zexy`;
+const headingCaseClass = kind === "news" ? "" : "lowercase";
+---
+
+<BaseLayout title={pageTitle}>
+  <Header />
+
+  <main class="site-container py-8 max-md:py-4">
+    <article class="overflow-hidden rounded-[1rem] border border-gray-light bg-panel-gradient shadow-panel">
+      <img src={entry.data.image} alt={entry.data.alt} class="aspect-[16/7] w-full object-cover max-md:aspect-[4/3]" />
+
+      <div class="p-7 max-md:p-5">
+        <div class:list={["mb-4 inline-flex items-center gap-2 rounded-full border px-3 py-1 text-xs font-extrabold uppercase tracking-[0.14em]", accentMap[entry.data.category]]}>
+          <Icon name={kind === "offer" ? "offers" : "news"} class="h-4 w-4 fill-none stroke-current stroke-2" />
+          {entry.data.category}
+        </div>
+
+        <h1 class:list={["max-w-4xl font-orbitron text-[2.3rem] font-extrabold leading-none text-white max-md:text-[1.7rem]", headingCaseClass]}>
+          {entry.data.title}
+        </h1>
+
+        {
+          kind === "offer" ? (
+            <div class="mt-5 flex flex-wrap items-center gap-3">
+              <span class="rounded-full bg-orange px-3 py-1 text-xs font-extrabold text-white">
+                {entry.data.discount}
+              </span>
+              <span class="text-sm font-extrabold uppercase tracking-[0.08em] text-orange">{entry.data.callout}</span>
+              <span class="text-[1.75rem] font-extrabold text-price-green">{entry.data.price}</span>
+              <span class="text-sm text-lilac">{entry.data.store}</span>
+            </div>
+          ) : (
+            <p class="mt-4 text-sm font-semibold lowercase tracking-[0.04em] text-lilac">{entry.data.timeLabel}</p>
+          )
+        }
+
+        <div class="prose prose-invert mt-8 max-w-none prose-p:text-white/85 prose-p:leading-7 prose-strong:text-white prose-a:text-blue">
+          <Content />
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <Footer />
+</BaseLayout>

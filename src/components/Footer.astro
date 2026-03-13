@@ -5,7 +5,7 @@ import { socialLinks } from "../data/home";
 const baseUrl = import.meta.env.BASE_URL;
 ---
 
-<footer class="site-footer mt-12 border-t border-gray-light py-6 pb-8 max-md:mt-8">
+<footer class="site-footer mt-8 border-t border-gray-light py-6 pb-8 max-md:mt-6">
   <div class="site-container">
     <div class="flex items-center justify-between gap-4 max-md:flex-col max-md:gap-6">
       <nav aria-label="Redes sociais" class="flex items-center gap-3 max-md:order-1">
@@ -28,7 +28,7 @@ const baseUrl = import.meta.env.BASE_URL;
         © 2026 Zexy. Todos os direitos reservados.
       </p>
 
-      <a href="#" aria-label="Zexy" class="inline-flex min-w-28 items-center justify-end max-md:order-3 max-md:justify-center">
+      <a href={baseUrl} aria-label="Zexy" class="inline-flex min-w-28 items-center justify-end max-md:order-3 max-md:justify-center">
         <img src={`${baseUrl}img/zexy.svg`} alt="Zexy" class="h-[2.125rem] w-auto" />
       </a>
     </div>

@@ -4,16 +4,21 @@ import Header from "../components/Header.astro";
 import FeaturedSection from "../components/FeaturedSection.astro";
 import NewsSection from "../components/NewsSection.astro";
 import OffersSection from "../components/OffersSection.astro";
+import { getFeaturedListing, getNewsListing, getOffersListing } from "../data/content";
 import BaseLayout from "../layouts/BaseLayout.astro";
+
+const homeFeatured = await getFeaturedListing("home");
+const homeNews = await getNewsListing("home");
+const homeOffers = await getOffersListing("home");
 ---
 
 <BaseLayout title="Zexy">
   <Header />
 
   <main class="site-main site-container">
-    <FeaturedSection />
-    <OffersSection />
-    <NewsSection />
+    <FeaturedSection items={homeFeatured.items} label={homeFeatured.title} />
+    <NewsSection title={homeNews.title} items={homeNews.items} ariaLabel={homeNews.title} />
+    <OffersSection title={homeOffers.title} categories={homeOffers.categories} items={homeOffers.items} />
   </main>
 
   <Footer />

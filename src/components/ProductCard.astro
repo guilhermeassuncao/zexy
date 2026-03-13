@@ -1,27 +1,31 @@
 ---
-import type { ProductItem } from "../data/home";
+import type { OfferListItem } from "../data/content";
 
 interface Props {
-  item: ProductItem;
+  item: OfferListItem;
 }
 
 const { item } = Astro.props;
 ---
 
 <article class="min-w-0">
-  <img
-    class="mb-2 w-full rounded-[0.625rem] border border-gray-light object-cover aspect-[4/3]"
-    src={item.image}
-    alt={item.alt}
-    loading="lazy"
-  />
-  <div class="mb-3 inline-flex items-center gap-2">
-    <span class="rounded-full bg-orange px-[0.4375rem] py-[0.1875rem] text-[0.625rem] font-extrabold text-white">
-      {item.discount}
-    </span>
-    <span class="text-xs font-extrabold leading-none tracking-[0.01em] text-orange">{item.callout}</span>
-  </div>
-  <h3 class="mb-2.5 text-base font-bold leading-tight text-white max-md:text-sm">{item.title}</h3>
-  <p class="mb-3 text-[1.625rem] font-extrabold text-price-green max-md:text-[1.3125rem]">{item.price}</p>
-  <p class="text-base text-lilac max-md:text-sm">{item.store}</p>
+  <a href={item.href} class="group block">
+    <img
+      class="mb-2 w-full rounded-[0.625rem] border border-gray-light object-cover aspect-[4/3]"
+      src={item.image}
+      alt={item.alt}
+      loading="lazy"
+    />
+    <div class="mb-3 inline-flex items-center gap-2">
+      <span class="rounded-full bg-yellow px-[0.4375rem] py-[0.1875rem] text-[0.625rem] font-extrabold text-black">
+        {item.discount}
+      </span>
+      <span class="text-xs font-extrabold leading-none tracking-[0.01em] text-orange">{item.callout}</span>
+    </div>
+    <h3 class="mb-2.5 text-base font-bold leading-tight text-white transition group-hover:text-blue max-md:text-sm">
+      {item.title}
+    </h3>
+    <p class="mb-3 text-[1.625rem] font-extrabold text-price-green max-md:text-[1.3125rem]">{item.price}</p>
+    <p class="text-base text-lilac max-md:text-sm">{item.store}</p>
+  </a>
 </article>

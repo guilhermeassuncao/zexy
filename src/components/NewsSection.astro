@@ -1,13 +1,21 @@
 ---
 import NewsItem from "./NewsItem.astro";
 import SectionTitle from "./SectionTitle.astro";
-import { newsItems } from "../data/home";
+import type { NewsListItem } from "../data/content";
+
+interface Props {
+  title?: string;
+  items?: NewsListItem[];
+  ariaLabel?: string;
+}
+
+const { title = "notícias", items = [], ariaLabel = "Últimas notícias" } = Astro.props;
 ---
 
-<section class="news-section mt-12 max-md:mt-6" aria-label="Últimas notícias">
-  <SectionTitle title="notícias" icon="news" colorClass="text-news-heading" />
+<section class="news-section mt-8 max-md:mt-5" aria-label={ariaLabel}>
+  <SectionTitle title={title} icon="news" colorClass="text-news-heading" />
 
   <ul class="m-0 list-none p-0">
-    {newsItems.map((item) => <NewsItem item={item} />)}
+    {items.map((item) => <NewsItem item={item} />)}
   </ul>
 </section>
