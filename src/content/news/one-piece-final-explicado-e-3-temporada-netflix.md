@@ -2,14 +2,16 @@
 title: "One Piece: final explicado e se a série vai ter 3ª temporada na Netflix"
 category: "animes"
 publishedAt: 2026-03-15
-image: "https://images.pexels.com/photos/7991579/pexels-photo-7991579.jpeg?auto=compress&cs=tinysrgb&w=900"
-alt: "Pessoa assistindo serie em notebook em ambiente escuro"
+image: "https://s2-techtudo.glbimg.com/AtrcyxkV-1UCBoDE7MkJarykzSg=/0x0:1402x766/1000x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_08fbf48bc0524877943fe86e43087e7a/internal_photos/bs/2026/X/V/uwEuTtTEuMTY0H4Pg0Ag/captura-de-tela-2026-03-10-204110.png"
+alt: "Elenco principal do live-action de One Piece em arte promocional"
 timeLabel: "agora"
 ---
 
 A segunda temporada do live-action de *One Piece* fecha um ciclo importante da jornada dos Chapéus de Palha e, ao mesmo tempo, deixa claro que a história está apenas aumentando de escala. Depois de entrar na Grand Line, o grupo de Luffy passa a enfrentar ameaças mais organizadas, conflitos políticos e uma conspiração muito maior do que parecia no começo.
 
 O encerramento também prepara diretamente o terreno para os próximos passos da saga de Alabasta. Entre novas alianças, revelações sobre os vilões e a entrada de mais um nome importante na tripulação, o final deixa várias perguntas no ar e reforça por que tanta gente já está olhando para a continuação.
+
+![Elenco principal de One Piece em arte promocional](https://s2-techtudo.glbimg.com/AtrcyxkV-1UCBoDE7MkJarykzSg=/0x0:1402x766/1000x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_08fbf48bc0524877943fe86e43087e7a/internal_photos/bs/2026/X/V/uwEuTtTEuMTY0H4Pg0Ag/captura-de-tela-2026-03-10-204110.png)
 
 ## O que você encontra neste guia
 
@@ -38,6 +40,27 @@ O núcleo do live-action continua centrado em Iñaki Godoy como Luffy. Ao lado d
 
 Na nova fase, o elenco também cresce com personagens ligados aos conflitos da Grand Line e ao arco de Alabasta. Entre os nomes que ganham espaço estão Vivi, Nico Robin, Chopper, além de figuras como Smoker, Tashigi e Dragon, que ampliam o peso político e dramático da história.
 
+<div class="post-carousel" data-post-carousel>
+  <div class="post-carousel-track" data-post-carousel-track>
+    <figure class="post-carousel-slide">
+      <img src="https://s2-techtudo.glbimg.com/nyKc7A6XCFWA_wy6XmlzF8TU3Y4=/0x0:1484x820/1000x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_08fbf48bc0524877943fe86e43087e7a/internal_photos/bs/2026/c/S/wmTDhjSXGF2ODWdppyCA/captura-de-tela-2026-03-10-153835.png" alt="Chapéus de Palha reunidos em imagem promocional da série" />
+    </figure>
+    <figure class="post-carousel-slide">
+      <img src="https://s2-techtudo.glbimg.com/AtrcyxkV-1UCBoDE7MkJarykzSg=/0x0:1402x766/1000x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_08fbf48bc0524877943fe86e43087e7a/internal_photos/bs/2026/X/V/uwEuTtTEuMTY0H4Pg0Ag/captura-de-tela-2026-03-10-204110.png" alt="Luffy, Sanji, Nami e Zoro em arte oficial da temporada" />
+    </figure>
+  </div>
+
+  <div class="post-carousel-nav">
+    <button class="post-carousel-button" type="button" aria-label="Imagem anterior" data-post-carousel-prev>&lsaquo;</button>
+    <button class="post-carousel-button" type="button" aria-label="Próxima imagem" data-post-carousel-next>&rsaquo;</button>
+  </div>
+
+  <div class="post-carousel-dots" aria-hidden="true">
+    <button class="post-carousel-dot" type="button" data-post-carousel-dot></button>
+    <button class="post-carousel-dot" type="button" data-post-carousel-dot></button>
+  </div>
+</div>
+
 ## Final explicado da 2ª temporada
 
 O desfecho acontece em Ilha Drum, quando Wapol retorna ao reino disposto a retomar o controle. Agora mais perigoso, ele tenta usar força bruta e caos para restaurar seu poder, enquanto os habitantes da ilha e os Chapéus de Palha se unem para impedir o colapso do lugar.
@@ -48,6 +71,8 @@ Um dos momentos mais simbólicos do episódio final envolve a bandeira associada
 
 Depois da vitória, a ameaça imediata acaba, Drum é libertada e Chopper recebe o convite oficial para se juntar ao bando como médico. A despedida de Kureha fecha esse trecho da história com um tom emocional forte, culminando na imagem da neve em forma de flores de cerejeira, uma homenagem direta ao sonho de Hiriluk.
 
+![Luffy, Usopp e Sanji em cena da segunda temporada](https://s2-techtudo.glbimg.com/QVpG9gagXCZjMuzvBJcol7N8jvE=/0x0:1414x803/1000x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_08fbf48bc0524877943fe86e43087e7a/internal_photos/bs/2026/H/l/OkCcQRR4eJ83objEuqoA/captura-de-tela-2026-03-10-151808.png)
+
 Nos momentos finais, a temporada muda o foco para o que vem a seguir. A viagem aponta para Alabasta, Smoker e Tashigi seguem no encalço dos Chapéus de Palha e a trama deixa duas revelações decisivas: Mr. Zero é Crocodile, enquanto Miss All Sunday é Nico Robin. Ou seja, o encerramento não fecha tudo; ele posiciona cuidadosamente as peças do próximo grande conflito.
 
 ## Quem são os Baroque Works?
@@ -57,6 +82,8 @@ Os Baroque Works são uma organização secreta que opera na Grand Line usando i
 Na segunda temporada, eles deixam de ser apenas uma ameaça periférica e passam a ocupar o centro da narrativa. Isso acontece porque suas ações estão conectadas diretamente à crise política de Alabasta e ao caminho que Luffy e seus aliados precisam seguir.
 
 Entre os membros citados ao longo desse arco estão figuras como Miss Wednesday, Miss All Sunday, Mr. 3, Mr. 5, Miss Valentine, Mr. 9, Miss Goldenweek e outros agentes com nomes padronizados. Essa nomenclatura já ajuda a mostrar que a organização opera de forma fria e funcional, quase como uma corporação do crime.
+
+![Membros ligados aos Baroque Works em imagem promocional](https://s2-techtudo.glbimg.com/QTtB6Cj8ain4CG3TPTn-VEt8I4E=/0x0:1473x797/1000x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_08fbf48bc0524877943fe86e43087e7a/internal_photos/bs/2026/8/Y/NuzsvLQCWHNAUqr8rjFQ/captura-de-tela-2026-03-10-185832.png)
 
 ## Quem é o Mr. Zero?
 
@@ -81,6 +108,8 @@ Depois de tudo o que acontece em Drum, Chopper aceita o convite de Luffy e assum
 Dentro da lógica do próprio final, a continuação é tratada como caminho natural da história. A temporada termina empurrando os personagens para Alabasta, fortalece Crocodile como grande ameaça e deixa várias frentes em aberto para desenvolvimento imediato.
 
 Em termos narrativos, a série claramente foi encerrada para continuar. A sensação é de preparação deliberada para uma terceira temporada, não de fechamento definitivo.
+
+![Imagem promocional reforçando o caminho para a continuação](https://s2-techtudo.glbimg.com/-aiSIeyOQrrXCXqYOMMZsoo4IUk=/0x0:1469x762/1000x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_08fbf48bc0524877943fe86e43087e7a/internal_photos/bs/2026/V/A/ycYoX0S3eVY3ex7WOFjA/captura-de-tela-2026-03-10-192216.png)
 
 ## O que esperar do futuro de Luffy?
 
