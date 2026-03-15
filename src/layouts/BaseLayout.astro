@@ -3,10 +3,21 @@ import "../styles/global.css";
 
 interface Props {
   title?: string;
+  description?: string;
+  image?: string;
+  type?: "website" | "article";
 }
 
-const { title = "Zexy" } = Astro.props;
+const {
+  title = "Zexy",
+  description = "Zexy reúne games, animes e séries em uma vitrine editorial com destaques e maratonas para descobrir o que vale seu tempo.",
+  image = `${import.meta.env.BASE_URL}img/zexy.svg`,
+  type = "website"
+} = Astro.props;
 const baseUrl = import.meta.env.BASE_URL;
+const site = Astro.site ?? new URL("https://zexy.com.br");
+const canonicalUrl = new URL(Astro.url.pathname, site).toString();
+const imageUrl = image.startsWith("http") ? image : new URL(image, site).toString();
 ---
 
 <!doctype html>
@@ -25,7 +36,20 @@ const baseUrl = import.meta.env.BASE_URL;
       rel="stylesheet"
     />
     <link rel="icon" type="image/svg+xml" href={`${baseUrl}favicon.svg`} />
+    <link rel="canonical" href={canonicalUrl} />
     <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:type" content={type} />
+    <meta property="og:site_name" content="Zexy" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={imageUrl} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={imageUrl} />
   </head>
   <body class="bg-site-gradient pt-[5.625rem] max-md:pt-0">
     <slot />

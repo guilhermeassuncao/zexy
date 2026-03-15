@@ -20,7 +20,7 @@ const featuredContent = !isOffersPage ? await getFeaturedListing(scope) : null;
 const newsContent = !isOffersPage ? await getNewsListing(scope) : null;
 ---
 
-<BaseLayout title={`Zexy | ${page.title}`}>
+<BaseLayout title={`Zexy | ${page.title}`} description={page.description}>
   <Header />
 
   <main class="site-main site-container">

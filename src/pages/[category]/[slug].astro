@@ -52,9 +52,16 @@ const postDateFormatter = new Intl.DateTimeFormat("pt-BR", {
 
 const pageTitle = `${entry.data.title} | Zexy`;
 const headingCaseClass = kind === "news" ? "" : "lowercase";
+const pageDescriptionSource =
+  entry.body
+    .split("\n\n")
+    .map((part) => part.replace(/<[^>]+>/g, " ").replace(/[#*_`>\[\]\(\)-]/g, "").replace(/\s+/g, " ").trim())
+    .find(Boolean) ?? entry.data.title;
+const pageDescription =
+  pageDescriptionSource.length > 220 ? `${pageDescriptionSource.slice(0, 217).trimEnd()}...` : pageDescriptionSource;
 ---
 
-<BaseLayout title={pageTitle}>
+<BaseLayout title={pageTitle} description={pageDescription} image={entry.data.image} type={kind === "news" ? "article" : "website"}>
   <Header />
 
   <main class="site-container py-8 max-md:py-4">
