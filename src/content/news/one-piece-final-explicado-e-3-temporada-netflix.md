@@ -61,6 +61,64 @@ Na nova fase, o elenco também cresce com personagens ligados aos conflitos da G
   </div>
 </div>
 
+<div class="post-carousel" data-post-carousel>
+  <div class="post-carousel-track" data-post-carousel-track>
+    <figure class="post-carousel-slide">
+      <img src="https://uploads.jovemnerd.com.br/wp-content/uploads/2023/06/luffy_1__yw1019mb5-760x342.jpg" alt="Monkey D. Luffy no live-action de One Piece" />
+      <div class="post-carousel-overlay"></div>
+      <div class="post-carousel-copy">
+        <h3 class="post-carousel-title">Monkey D. Luffy</h3>
+        <p class="post-carousel-text">Capitão dos Chapéus de Palha.</p>
+      </div>
+    </figure>
+    <figure class="post-carousel-slide">
+      <img src="https://uploads.jovemnerd.com.br/wp-content/uploads/2023/06/mackenyu_zoro__w23b6m10-760x342.jpg" alt="Roronoa Zoro no live-action de One Piece" />
+      <div class="post-carousel-overlay"></div>
+      <div class="post-carousel-copy">
+        <h3 class="post-carousel-title">Roronoa Zoro</h3>
+        <p class="post-carousel-text">Espadachim do bando.</p>
+      </div>
+    </figure>
+    <figure class="post-carousel-slide">
+      <img src="https://uploads.jovemnerd.com.br/wp-content/uploads/2023/06/emily_nami__3081eu7-760x342.jpg" alt="Nami no live-action de One Piece" />
+      <div class="post-carousel-overlay"></div>
+      <div class="post-carousel-copy">
+        <h3 class="post-carousel-title">Nami</h3>
+        <p class="post-carousel-text">Navegadora da tripulação.</p>
+      </div>
+    </figure>
+    <figure class="post-carousel-slide">
+      <img src="https://uploads.jovemnerd.com.br/wp-content/uploads/2023/06/jacob_usopp__p61y2z59-760x342.jpg" alt="Usopp no live-action de One Piece" />
+      <div class="post-carousel-overlay"></div>
+      <div class="post-carousel-copy">
+        <h3 class="post-carousel-title">Usopp</h3>
+        <p class="post-carousel-text">Atirador dos Chapéus de Palha.</p>
+      </div>
+    </figure>
+    <figure class="post-carousel-slide">
+      <img src="https://uploads.jovemnerd.com.br/wp-content/uploads/2023/06/taz_sanji__fj81mu0s0-760x342.jpg" alt="Sanji no live-action de One Piece" />
+      <div class="post-carousel-overlay"></div>
+      <div class="post-carousel-copy">
+        <h3 class="post-carousel-title">Sanji</h3>
+        <p class="post-carousel-text">Cozinheiro da tripulação.</p>
+      </div>
+    </figure>
+  </div>
+
+  <div class="post-carousel-nav">
+    <button class="post-carousel-button" type="button" aria-label="Imagem anterior" data-post-carousel-prev>&lsaquo;</button>
+    <button class="post-carousel-button" type="button" aria-label="Próxima imagem" data-post-carousel-next>&rsaquo;</button>
+  </div>
+
+  <div class="post-carousel-dots" aria-hidden="true">
+    <button class="post-carousel-dot" type="button" data-post-carousel-dot></button>
+    <button class="post-carousel-dot" type="button" data-post-carousel-dot></button>
+    <button class="post-carousel-dot" type="button" data-post-carousel-dot></button>
+    <button class="post-carousel-dot" type="button" data-post-carousel-dot></button>
+    <button class="post-carousel-dot" type="button" data-post-carousel-dot></button>
+  </div>
+</div>
+
 ## Final explicado da 2ª temporada
 
 O desfecho acontece em Ilha Drum, quando Wapol retorna ao reino disposto a retomar o controle. Agora mais perigoso, ele tenta usar força bruta e caos para restaurar seu poder, enquanto os habitantes da ilha e os Chapéus de Palha se unem para impedir o colapso do lugar.
@@ -116,6 +174,31 @@ Em termos narrativos, a série claramente foi encerrada para continuar. A sensa�
 O próximo passo da jornada deve ampliar tanto o peso emocional quanto a escala política da aventura. Luffy continua sendo o motor idealista da história, mas agora precisa atravessar conflitos maiores, lidar com vilões mais estratégicos e proteger aliados envolvidos em problemas de alcance nacional.
 
 Além disso, a chegada de Chopper, a presença de Vivi e a sombra de Crocodile fazem a história ganhar outra densidade. Isso tende a tornar a próxima fase mais dramática, mais tensa e também mais recompensadora para quem acompanha a construção da tripulação desde o começo.
+
+<div class="post-carousel" data-post-carousel>
+  <div class="post-carousel-track" data-post-carousel-track>
+    <figure class="post-carousel-slide">
+      <img src="https://s2-techtudo.glbimg.com/QVpG9gagXCZjMuzvBJcol7N8jvE=/0x0:1414x803/1000x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_08fbf48bc0524877943fe86e43087e7a/internal_photos/bs/2026/H/l/OkCcQRR4eJ83objEuqoA/captura-de-tela-2026-03-10-151808.png" alt="Luffy, Usopp e Sanji em cena do arco de Drum" />
+    </figure>
+    <figure class="post-carousel-slide">
+      <img src="https://s2-techtudo.glbimg.com/QTtB6Cj8ain4CG3TPTn-VEt8I4E=/0x0:1473x797/1000x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_08fbf48bc0524877943fe86e43087e7a/internal_photos/bs/2026/8/Y/NuzsvLQCWHNAUqr8rjFQ/captura-de-tela-2026-03-10-185832.png" alt="Grupo ligado aos Baroque Works em imagem promocional" />
+    </figure>
+    <figure class="post-carousel-slide">
+      <img src="https://s2-techtudo.glbimg.com/-aiSIeyOQrrXCXqYOMMZsoo4IUk=/0x0:1469x762/1000x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_08fbf48bc0524877943fe86e43087e7a/internal_photos/bs/2026/V/A/ycYoX0S3eVY3ex7WOFjA/captura-de-tela-2026-03-10-192216.png" alt="Imagem promocional apontando para a continuação da série" />
+    </figure>
+  </div>
+
+  <div class="post-carousel-nav">
+    <button class="post-carousel-button" type="button" aria-label="Imagem anterior" data-post-carousel-prev>&lsaquo;</button>
+    <button class="post-carousel-button" type="button" aria-label="Próxima imagem" data-post-carousel-next>&rsaquo;</button>
+  </div>
+
+  <div class="post-carousel-dots" aria-hidden="true">
+    <button class="post-carousel-dot" type="button" data-post-carousel-dot></button>
+    <button class="post-carousel-dot" type="button" data-post-carousel-dot></button>
+    <button class="post-carousel-dot" type="button" data-post-carousel-dot></button>
+  </div>
+</div>
 
 ## Vale a pena assistir?
 

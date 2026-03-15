@@ -134,6 +134,7 @@ Regras importantes:
 - nao use badge no slide
 - se a imagem ja comunica bem sozinha, pode omitir o texto
 - use carrossel apenas quando ele realmente agregar contexto
+- ha um exemplo pronto sem texto sobreposto no modelo completo de Markdown do projeto
 
 Exemplo sem texto sobreposto, com `6` imagens:
 
