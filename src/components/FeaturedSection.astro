@@ -8,23 +8,41 @@ interface Props {
 }
 
 const { items, label = "Destaques" } = Astro.props;
-const [mainCard, secondCard, thirdCard, fourthCard, fifthCard] = items;
+const [mainCard, ...remainingCards] = items;
+const secondColumnCards = remainingCards.slice(0, 2);
+const thirdColumnCards = remainingCards.slice(2, 5);
+const desktopGridClass =
+  remainingCards.length === 0
+    ? "grid-cols-1"
+    : thirdColumnCards.length === 0
+      ? "grid-cols-[1.35fr_1fr]"
+      : "grid-cols-[1.35fr_1fr_1fr]";
 ---
 
-<section class="featured-section mt-8 pt-1.5 max-md:mt-3" aria-label={label}>
-  <div class="grid grid-cols-[1.35fr_1fr_1fr] gap-4 max-md:grid-cols-1">
-    <div>
-      <FeaturedCard item={mainCard} />
-    </div>
+{
+  mainCard && (
+    <section class="featured-section mt-8 pt-1.5 max-md:mt-3" aria-label={label}>
+      <div class:list={["grid gap-4 max-md:grid-cols-1", desktopGridClass]}>
+        <div>
+          <FeaturedCard item={mainCard} />
+        </div>
 
-    <div class="grid gap-4">
-      <FeaturedCard item={secondCard} />
-      <FeaturedCard item={thirdCard} />
-    </div>
+        {
+          secondColumnCards.length > 0 && (
+            <div class="grid gap-4">
+              {secondColumnCards.map((item) => <FeaturedCard item={item} />)}
+            </div>
+          )
+        }
 
-    <div class="grid gap-4">
-      <FeaturedCard item={fourthCard} />
-      <FeaturedCard item={fifthCard} />
-    </div>
-  </div>
-</section>
+        {
+          thirdColumnCards.length > 0 && (
+            <div class="grid gap-4">
+              {thirdColumnCards.map((item) => <FeaturedCard item={item} />)}
+            </div>
+          )
+        }
+      </div>
+    </section>
+  )
+}

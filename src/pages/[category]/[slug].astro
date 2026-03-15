@@ -18,7 +18,7 @@ export async function getStaticPaths() {
       props: { kind: "offer", entry }
     })),
     ...news.map((entry) => ({
-      params: { category: entry.data.category, slug: entry.slug },
+      params: { category: entry.data.category, slug: entry.slug.split("/").at(-1) ?? entry.slug },
       props: { kind: "news", entry }
     }))
   ];
@@ -28,9 +28,9 @@ const { kind, entry } = Astro.props as EntryProps;
 const { Content } = await render(entry);
 
 const accentMap = {
-  games: "text-red border-red/40 bg-red/10",
-  animes: "text-purple border-purple/40 bg-purple/10",
-  series: "text-orange border-orange/40 bg-orange/10"
+  games: "text-red border-red/55 bg-black/45 shadow-[0_10px_30px_rgba(0,0,0,0.3)]",
+  animes: "text-purple border-purple/55 bg-black/45 shadow-[0_10px_30px_rgba(0,0,0,0.3)]",
+  series: "text-orange border-orange/55 bg-black/45 shadow-[0_10px_30px_rgba(0,0,0,0.3)]"
 } as const;
 
 const accentBarMap = {
@@ -44,6 +44,11 @@ const categoryLabelMap = {
   animes: "animes",
   series: "series & filmes"
 } as const;
+const postDateFormatter = new Intl.DateTimeFormat("pt-BR", {
+  day: "2-digit",
+  month: "2-digit",
+  year: "numeric"
+});
 
 const pageTitle = `${entry.data.title} | Zexy`;
 const headingCaseClass = kind === "news" ? "" : "lowercase";
@@ -55,7 +60,7 @@ const headingCaseClass = kind === "news" ? "" : "lowercase";
   <main class="site-container py-8 max-md:py-4">
     <article class="overflow-hidden rounded-[1rem] border border-gray-light bg-panel-gradient shadow-panel">
       <div class="relative isolate overflow-hidden">
-        <img src={entry.data.image} alt={entry.data.alt} class="aspect-[16/7] w-full object-cover max-md:aspect-[4/3]" />
+        <img src={entry.data.image} alt={entry.data.alt ?? entry.data.title} class="aspect-[16/7] w-full object-cover max-md:aspect-[4/3]" />
         <div class="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.08),transparent_34%),linear-gradient(180deg,rgba(19,18,26,0.08)_0%,rgba(19,18,26,0.34)_42%,rgba(19,18,26,0.94)_100%)]"></div>
         <div class="absolute inset-x-0 bottom-0 p-7 max-md:p-5">
           <div class="flex items-end gap-5 max-md:gap-4">
@@ -82,7 +87,7 @@ const headingCaseClass = kind === "news" ? "" : "lowercase";
                     <span class="text-sm text-lilac drop-shadow-[0_4px_14px_rgba(0,0,0,0.45)]">{entry.data.store}</span>
                   </div>
                 ) : (
-                  <p class="mt-4 inline-flex rounded-full border border-white/10 bg-black/20 px-3 py-1 text-sm font-semibold lowercase tracking-[0.04em] text-lilac shadow-[0_8px_24px_rgba(0,0,0,0.28)] backdrop-blur-sm">{entry.data.timeLabel}</p>
+                  <p class="mt-4 inline-flex rounded-full border border-white/10 bg-black/20 px-3 py-1 text-sm font-semibold tracking-[0.04em] text-lilac shadow-[0_8px_24px_rgba(0,0,0,0.28)] backdrop-blur-sm">{postDateFormatter.format(entry.data.publishedAt)}</p>
                 )
               }
             </div>

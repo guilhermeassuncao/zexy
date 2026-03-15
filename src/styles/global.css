@@ -85,11 +85,16 @@
   }
 
   .post-content h2 {
-    @apply text-[1.55rem] max-md:text-[1.3rem];
+    @apply text-[1.55rem] text-orange max-md:text-[1.3rem];
+  }
+
+  .post-content h2[id="palavras-chave"] + p,
+  .post-content h2[id="palavraschave"] + p {
+    @apply my-4 rounded-none border-0 bg-transparent px-0 py-0 font-orbitron text-[0.78rem] font-bold leading-8 tracking-[0.02em] text-lilac max-md:text-[0.72rem];
   }
 
   .post-content h3 {
-    @apply text-[1.25rem] max-md:text-[1.12rem];
+    @apply text-[1.25rem] text-cyan max-md:text-[1.12rem];
   }
 
   .post-content h4 {
@@ -265,13 +270,14 @@
   }
 
   .post-content iframe {
-    @apply aspect-video w-full rounded-2xl border border-gray-light shadow-panel;
+    @apply mx-auto aspect-video w-3/4 rounded-2xl border border-gray-light shadow-panel;
   }
 
   @media (max-width: 48.75rem) {
     .post-content figure,
     .post-content > img,
-    .post-content > p > img {
+    .post-content > p > img,
+    .post-content iframe {
       @apply w-full;
     }
 

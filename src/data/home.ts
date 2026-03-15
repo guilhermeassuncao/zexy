@@ -32,7 +32,7 @@ export const navItems = [
   { label: "games", href: "/games", color: "text-red", glow: "menu-link-glow-red", icon: "games" },
   { label: "animes", href: "/animes", color: "text-purple", glow: "menu-link-glow-purple", icon: "animes" },
   { label: "series & filmes", href: "/series", color: "text-orange", glow: "menu-link-glow-orange", icon: "series" },
-  { label: "ofertas", href: "/ofertas", color: "text-blue", glow: "menu-link-glow-blue", icon: "offers" }
+  // { label: "ofertas", href: "/ofertas", color: "text-blue", glow: "menu-link-glow-blue", icon: "offers" }
 ] as const;
 
 export const socialLinks = [

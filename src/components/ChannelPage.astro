@@ -3,8 +3,8 @@ import Footer from "./Footer.astro";
 import Header from "./Header.astro";
 import FeaturedSection from "./FeaturedSection.astro";
 import NewsSection from "./NewsSection.astro";
-import OffersSection from "./OffersSection.astro";
-import { getFeaturedListing, getNewsListing, getOffersListing } from "../data/content";
+// import OffersSection from "./OffersSection.astro";
+import { getFeaturedListing, getNewsListing } from "../data/content";
 import type { PageContent, PageKey } from "../data/pages";
 import BaseLayout from "../layouts/BaseLayout.astro";
 
@@ -16,7 +16,7 @@ const { page } = Astro.props;
 const isOffersPage = page.slug === "/ofertas";
 const scope = page.slug.slice(1) as PageKey;
 const featuredContent = !isOffersPage ? await getFeaturedListing(scope) : null;
-const offersContent = await getOffersListing(scope);
+// const offersContent = await getOffersListing(scope);
 const newsContent = !isOffersPage ? await getNewsListing(scope) : null;
 ---
 
@@ -32,12 +32,12 @@ const newsContent = !isOffersPage ? await getNewsListing(scope) : null;
         </>
       )
     }
-    <OffersSection
+    {/* <OffersSection
       title={offersContent.title}
       categories={offersContent.categories}
       items={offersContent.items}
       sectionId={page.slug.slice(1)}
-    />
+    /> */}
   </main>
 
   <Footer />

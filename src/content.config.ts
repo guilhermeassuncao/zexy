@@ -24,8 +24,7 @@ const news = defineCollection({
     category: categorySchema,
     publishedAt: z.coerce.date(),
     image: z.string(),
-    alt: z.string(),
-    timeLabel: z.string()
+    alt: z.string().optional()
   })
 });
 

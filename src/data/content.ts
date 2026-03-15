@@ -65,22 +65,23 @@ const featuredTitleByScope: Record<Exclude<ContentScope, "ofertas">, string> = {
   series: "destaques de series & filmes"
 };
 
-const featuredSizeOrder: FeaturedItem["size"][] = ["large", "medium", "medium", "small", "small"];
-
-function interleaveFeaturedItems<T>(first: T[], second: T[]) {
-  const mixed: T[] = [];
-  const maxLength = Math.max(first.length, second.length);
-
-  for (let index = 0; index < maxLength; index += 1) {
-    if (first[index]) mixed.push(first[index]);
-    if (second[index]) mixed.push(second[index]);
-  }
-
-  return mixed;
-}
+const featuredSizeOrder: FeaturedItem["size"][] = ["large", "medium", "medium", "small", "small", "small"];
+const postDateFormatter = new Intl.DateTimeFormat("pt-BR", {
+  day: "2-digit",
+  month: "2-digit",
+  year: "numeric"
+});
 
 function sortByNewest<T extends { data: { publishedAt: Date } }>(items: T[]) {
   return items.sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime());
+}
+
+function getNewsSlug(entry: CollectionEntry<"news">) {
+  return entry.slug.split("/").at(-1) ?? entry.slug;
+}
+
+function formatPostDate(date: Date) {
+  return postDateFormatter.format(date);
 }
 
 function toOfferListItem(entry: CollectionEntry<"offers">): OfferListItem {
@@ -99,6 +100,7 @@ function toOfferListItem(entry: CollectionEntry<"offers">): OfferListItem {
 }
 
 function toNewsListItem(entry: CollectionEntry<"news">): NewsListItem {
+  const slug = getNewsSlug(entry);
   const excerptSource =
     entry.body
       .split("\n\n")
@@ -110,11 +112,11 @@ function toNewsListItem(entry: CollectionEntry<"news">): NewsListItem {
   return {
     title: entry.data.title,
     image: entry.data.image,
-    alt: entry.data.alt,
+    alt: entry.data.alt ?? entry.data.title,
     category: entry.data.category,
-    time: entry.data.timeLabel,
+    time: formatPostDate(entry.data.publishedAt),
     excerpt,
-    href: `/${entry.data.category}/${entry.slug}`,
+    href: `/${entry.data.category}/${slug}`,
     publishedAt: entry.data.publishedAt
   };
 }
@@ -149,35 +151,21 @@ export async function getNewsListing(scope: Exclude<ContentScope, "ofertas">): P
 }
 
 export async function getFeaturedListing(scope: Exclude<ContentScope, "ofertas">): Promise<FeaturedListing> {
-  const [offers, news] = await Promise.all([
-    getCollection("offers", ({ data }) => {
-      if (scope === "home") return true;
-      return data.category === scope;
-    }),
-    getCollection("news", ({ data }) => {
-      if (scope === "home") return true;
-      return data.category === scope;
-    })
-  ]);
-
-  const latestOffers = sortByNewest(offers).map((entry) => ({
-    title: entry.data.title,
-    category: entry.data.category,
-    image: entry.data.image,
-    href: `/${entry.data.category}/${entry.slug}`,
-    publishedAt: entry.data.publishedAt
-  }));
+  const news = await getCollection("news", ({ data }) => {
+    if (scope === "home") return true;
+    return data.category === scope;
+  });
 
   const latestNews = sortByNewest(news).map((entry) => ({
     title: entry.data.title,
     category: entry.data.category,
     image: entry.data.image,
-    href: `/${entry.data.category}/${entry.slug}`,
+    href: `/${entry.data.category}/${getNewsSlug(entry)}`,
     publishedAt: entry.data.publishedAt
   }));
 
-  const items = interleaveFeaturedItems(latestNews, latestOffers)
-    .slice(0, 5)
+  const items = latestNews
+    .slice(0, 6)
     .map((item, index) => ({
       title: item.title,
       category: item.category,
