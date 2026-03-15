@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+# Improve eligibility for large image previews in Search and Discover.
+Max-image-preview: large
+
+Sitemap: https://zexy.com.br/sitemap.xml

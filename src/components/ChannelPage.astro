@@ -18,9 +18,64 @@ const scope = page.slug.slice(1) as PageKey;
 const featuredContent = !isOffersPage ? await getFeaturedListing(scope) : null;
 // const offersContent = await getOffersListing(scope);
 const newsContent = !isOffersPage ? await getNewsListing(scope) : null;
+const site = Astro.site ?? new URL("https://zexy.com.br");
+const canonicalUrl = new URL(page.slug, site).toString();
+const pageTitle =
+  page.slug === "/games"
+    ? "Games: notícias, listas e recomendações para jogar agora | Zexy"
+    : page.slug === "/animes"
+      ? "Animes para maratonar, estreias e listas atualizadas | Zexy"
+      : page.slug === "/series"
+        ? "Séries e filmes para maratonar: listas e guias rápidos | Zexy"
+        : "Ofertas selecionadas de games, animes e séries | Zexy";
+const itemList =
+  newsContent?.items.map((item, index) => ({
+    "@type": "ListItem",
+    position: index + 1,
+    url: new URL(item.href, site).toString(),
+    name: item.title
+  })) ?? [];
+const structuredData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    name: page.title,
+    description: page.description,
+    url: canonicalUrl,
+    inLanguage: "pt-BR"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Zexy",
+        item: site.toString()
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: page.title,
+        item: canonicalUrl
+      }
+    ]
+  },
+  ...(itemList.length
+    ? [
+        {
+          "@context": "https://schema.org",
+          "@type": "ItemList",
+          name: page.title,
+          itemListElement: itemList
+        }
+      ]
+    : [])
+];
 ---
 
-<BaseLayout title={`Zexy | ${page.title}`} description={page.description}>
+<BaseLayout title={pageTitle} description={page.description} structuredData={structuredData}>
   <Header />
 
   <main class="site-main site-container">

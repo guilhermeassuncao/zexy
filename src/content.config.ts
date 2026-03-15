@@ -8,8 +8,11 @@ const offers = defineCollection({
     title: z.string(),
     category: categorySchema,
     publishedAt: z.coerce.date(),
+    updatedAt: z.coerce.date().optional(),
     image: z.string(),
     alt: z.string(),
+    description: z.string().max(180).optional(),
+    tags: z.array(z.string()).min(1).max(8).optional(),
     discount: z.string(),
     callout: z.string(),
     price: z.string(),
@@ -23,8 +26,12 @@ const news = defineCollection({
     title: z.string(),
     category: categorySchema,
     publishedAt: z.coerce.date(),
+    updatedAt: z.coerce.date().optional(),
     image: z.string(),
-    alt: z.string().optional()
+    alt: z.string().optional(),
+    description: z.string().max(180).optional(),
+    tags: z.array(z.string()).min(1).max(8).optional(),
+    author: z.string().optional()
   })
 });
 

@@ -2,7 +2,18 @@
 title: "10 animes de ação para maratonar agora"
 category: "animes"
 publishedAt: 2026-03-15
+updatedAt: 2026-03-15
 image: "https://res.cloudinary.com/ddjv5qfvw/image/upload/v1773596264/GRDV0019R-backdrop_wide_h2sfdm.jpg"
+alt: "Personagem de anime em cena de combate com energia azul ao fundo"
+description: "Lista com animes de ação para maratonar agora, reunindo séries com ritmo forte, lutas marcantes e boas portas de entrada para diferentes perfis."
+tags:
+  - animes
+  - anime de ação
+  - maratona
+  - jujutsu kaisen
+  - demon slayer
+  - ação
+author: "Equipe Zexy"
 ---
 
 Se você está procurando **animes de ação para maratonar**, a melhor escolha normalmente envolve três coisas: ritmo rápido, personagens carismáticos e lutas que realmente empolgam.

@@ -2,7 +2,18 @@
 title: "10 séries curtas para maratonar no fim de semana"
 category: "series"
 publishedAt: 2026-03-15
+updatedAt: 2026-03-15
 image: "https://res.cloudinary.com/ddjv5qfvw/image/upload/v1773596344/26af95fe4f36019092f711ed76615d151fb52dc0fa6847b2185ea7f28d0a80f4_rgvmcs.jpg"
+alt: "Pessoa assistindo série em tela grande durante a noite"
+description: "Séries curtas e minisséries para maratonar no fim de semana, com opções intensas, leves e rápidas para terminar em poucos dias."
+tags:
+  - series
+  - minisséries
+  - maratona
+  - fim de semana
+  - the bear
+  - chernobyl
+author: "Equipe Zexy"
 ---
 
 Começar uma série nova costuma ser fácil. O difícil é encontrar algo que realmente valha um fim de semana inteiro sem cair em temporadas demais, episódios de transição ou histórias que demoram para engrenar.
