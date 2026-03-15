@@ -52,6 +52,53 @@ const baseUrl = import.meta.env.BASE_URL;
         sr.reveal(".news-section li", { origin: "bottom", interval: 70 });
         sr.reveal(".site-footer", { origin: "bottom", delay: 140 });
       }
+
+      document.querySelectorAll("[data-post-carousel]").forEach((carousel) => {
+        if (!(carousel instanceof HTMLElement)) return;
+
+        const track = carousel.querySelector("[data-post-carousel-track]");
+        const prev = carousel.querySelector("[data-post-carousel-prev]");
+        const next = carousel.querySelector("[data-post-carousel-next]");
+        const dots = Array.from(carousel.querySelectorAll("[data-post-carousel-dot]"));
+
+        if (!(track instanceof HTMLElement)) return;
+
+        const getSlideWidth = () => track.clientWidth;
+        const getIndex = () => {
+          const width = getSlideWidth();
+          if (!width) return 0;
+          return Math.round(track.scrollLeft / width);
+        };
+
+        const updateDots = () => {
+          const activeIndex = getIndex();
+          dots.forEach((dot, index) => {
+            dot.classList.toggle("is-active", index === activeIndex);
+          });
+        };
+
+        const scrollToIndex = (index) => {
+          const maxIndex = Math.max(dots.length - 1, 0);
+          const targetIndex =
+            index < 0 ? maxIndex : index > maxIndex ? 0 : Math.min(Math.max(index, 0), maxIndex);
+
+          track.scrollTo({
+            left: targetIndex * getSlideWidth(),
+            behavior: "smooth"
+          });
+        };
+
+        prev?.addEventListener("click", () => scrollToIndex(getIndex() - 1));
+        next?.addEventListener("click", () => scrollToIndex(getIndex() + 1));
+
+        dots.forEach((dot, index) => {
+          dot.addEventListener("click", () => scrollToIndex(index));
+        });
+
+        track.addEventListener("scroll", () => updateDots(), { passive: true });
+        window.addEventListener("resize", () => updateDots(), { passive: true });
+        updateDots();
+      });
     </script>
   </body>
 </html>

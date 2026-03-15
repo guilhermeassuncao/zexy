@@ -54,8 +54,8 @@ export const pageContent: Record<PageKey, PageContent> = {
   },
   series: {
     slug: "/series",
-    title: "series",
-    subtitle: "Guia rápido para quem quer escolher melhor o próximo play.",
+    title: "series & filmes",
+    subtitle: "Guia rápido para escolher melhor a próxima maratona.",
     description:
       "Aqui o recorte é mais editorial: destaques, catálogo quente e ofertas úteis para montar uma maratona sem sair do clima da home.",
     icon: "series",
@@ -66,7 +66,7 @@ export const pageContent: Record<PageKey, PageContent> = {
       { label: "top 10", value: "04 trocas" },
       { label: "assinaturas", value: "até 45%" }
     ],
-    featuredTitle: "destaques de series"
+    featuredTitle: "destaques de series & filmes"
   },
   ofertas: {
     slug: "/ofertas",

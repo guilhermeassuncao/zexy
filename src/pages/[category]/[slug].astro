@@ -33,6 +33,18 @@ const accentMap = {
   series: "text-orange border-orange/40 bg-orange/10"
 } as const;
 
+const accentBarMap = {
+  games: "bg-red shadow-[0_0_24px_rgba(248,115,89,0.45)]",
+  animes: "bg-purple shadow-[0_0_24px_rgba(115,89,248,0.45)]",
+  series: "bg-orange shadow-[0_0_24px_rgba(248,182,89,0.45)]"
+} as const;
+
+const categoryLabelMap = {
+  games: "games",
+  animes: "animes",
+  series: "series & filmes"
+} as const;
+
 const pageTitle = `${entry.data.title} | Zexy`;
 const headingCaseClass = kind === "news" ? "" : "lowercase";
 ---
@@ -42,34 +54,44 @@ const headingCaseClass = kind === "news" ? "" : "lowercase";
 
   <main class="site-container py-8 max-md:py-4">
     <article class="overflow-hidden rounded-[1rem] border border-gray-light bg-panel-gradient shadow-panel">
-      <img src={entry.data.image} alt={entry.data.alt} class="aspect-[16/7] w-full object-cover max-md:aspect-[4/3]" />
+      <div class="relative isolate overflow-hidden">
+        <img src={entry.data.image} alt={entry.data.alt} class="aspect-[16/7] w-full object-cover max-md:aspect-[4/3]" />
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.08),transparent_34%),linear-gradient(180deg,rgba(19,18,26,0.08)_0%,rgba(19,18,26,0.34)_42%,rgba(19,18,26,0.94)_100%)]"></div>
+        <div class="absolute inset-x-0 bottom-0 p-7 max-md:p-5">
+          <div class="flex items-end gap-5 max-md:gap-4">
+            <div class:list={["w-1.5 self-stretch rounded-full max-md:w-1", accentBarMap[entry.data.category]]}></div>
+
+            <div>
+              <div class:list={["mb-4 inline-flex items-center gap-2 rounded-full border px-3 py-1 text-xs font-extrabold uppercase tracking-[0.14em] backdrop-blur-sm", accentMap[entry.data.category]]}>
+                <Icon name={kind === "offer" ? "offers" : "news"} class="h-4 w-4 fill-none stroke-current stroke-2" />
+                {categoryLabelMap[entry.data.category]}
+              </div>
+
+              <h1 class:list={["max-w-3xl text-balance font-orbitron text-[2.3rem] font-extrabold leading-[0.98] text-white drop-shadow-[0_6px_24px_rgba(0,0,0,0.65)] max-md:max-w-full max-md:text-[1.7rem]", headingCaseClass]}>
+                {entry.data.title}
+              </h1>
+
+              {
+                kind === "offer" ? (
+                  <div class="mt-5 flex flex-wrap items-center gap-3">
+                    <span class="rounded-full bg-orange px-3 py-1 text-xs font-extrabold text-white shadow-[0_8px_20px_rgba(0,0,0,0.3)]">
+                      {entry.data.discount}
+                    </span>
+                    <span class="text-sm font-extrabold uppercase tracking-[0.08em] text-orange drop-shadow-[0_4px_14px_rgba(0,0,0,0.45)]">{entry.data.callout}</span>
+                    <span class="text-[1.75rem] font-extrabold text-price-green drop-shadow-[0_4px_14px_rgba(0,0,0,0.45)]">{entry.data.price}</span>
+                    <span class="text-sm text-lilac drop-shadow-[0_4px_14px_rgba(0,0,0,0.45)]">{entry.data.store}</span>
+                  </div>
+                ) : (
+                  <p class="mt-4 inline-flex rounded-full border border-white/10 bg-black/20 px-3 py-1 text-sm font-semibold lowercase tracking-[0.04em] text-lilac shadow-[0_8px_24px_rgba(0,0,0,0.28)] backdrop-blur-sm">{entry.data.timeLabel}</p>
+                )
+              }
+            </div>
+          </div>
+        </div>
+      </div>
 
       <div class="p-7 max-md:p-5">
-        <div class:list={["mb-4 inline-flex items-center gap-2 rounded-full border px-3 py-1 text-xs font-extrabold uppercase tracking-[0.14em]", accentMap[entry.data.category]]}>
-          <Icon name={kind === "offer" ? "offers" : "news"} class="h-4 w-4 fill-none stroke-current stroke-2" />
-          {entry.data.category}
-        </div>
-
-        <h1 class:list={["max-w-4xl font-orbitron text-[2.3rem] font-extrabold leading-none text-white max-md:text-[1.7rem]", headingCaseClass]}>
-          {entry.data.title}
-        </h1>
-
-        {
-          kind === "offer" ? (
-            <div class="mt-5 flex flex-wrap items-center gap-3">
-              <span class="rounded-full bg-orange px-3 py-1 text-xs font-extrabold text-white">
-                {entry.data.discount}
-              </span>
-              <span class="text-sm font-extrabold uppercase tracking-[0.08em] text-orange">{entry.data.callout}</span>
-              <span class="text-[1.75rem] font-extrabold text-price-green">{entry.data.price}</span>
-              <span class="text-sm text-lilac">{entry.data.store}</span>
-            </div>
-          ) : (
-            <p class="mt-4 text-sm font-semibold lowercase tracking-[0.04em] text-lilac">{entry.data.timeLabel}</p>
-          )
-        }
-
-        <div class="prose prose-invert mt-8 max-w-none prose-p:text-white/85 prose-p:leading-7 prose-strong:text-white prose-a:text-blue">
+        <div class="post-content mt-8">
           <Content />
         </div>
       </div>

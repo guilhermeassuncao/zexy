@@ -23,9 +23,15 @@ const categoryMap = {
 } as const;
 
 const sizeMap = {
-  large: "min-h-[32.8125rem]",
-  medium: "min-h-[15.8125rem]",
-  small: "min-h-[10.0625rem]"
+  large: "min-h-[32.8125rem] max-md:min-h-[22rem]",
+  medium: "min-h-[15.8125rem] max-md:min-h-[13rem]",
+  small: "min-h-[10.0625rem] max-md:min-h-[9.5rem]"
+} as const;
+
+const categoryLabelMap = {
+  games: "games",
+  animes: "animes",
+  series: "series & filmes"
 } as const;
 ---
 
@@ -41,7 +47,7 @@ const sizeMap = {
     <span class:list={["absolute bottom-0 left-0 h-[5.75rem] w-2", categoryMap[item.category].stripe]}></span>
     <div class="absolute inset-x-0 bottom-0 p-5 transition duration-300 group-hover:translate-y-[-0.125rem]">
       <span class:list={["mb-2.5 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.06em]", categoryMap[item.category].text]}>
-        {item.category}
+        {categoryLabelMap[item.category]}
         <span class:list={["h-[0.6875rem] w-[0.6875rem] rounded-sm", categoryMap[item.category].stripe]}></span>
       </span>
       <h2 class="max-w-[32.5rem] text-base font-extrabold leading-tight text-white transition duration-300 group-hover:text-white/95 max-md:text-sm">

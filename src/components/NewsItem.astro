@@ -21,6 +21,12 @@ const categoryMap = {
     hover: "hover:text-orange"
   }
 } as const;
+
+const categoryLabelMap = {
+  games: "games",
+  animes: "animes",
+  series: "series & filmes"
+} as const;
 ---
 
 <li class="grid grid-cols-[10.75rem_1fr] gap-[1.125rem] border-b border-gray-light py-[1.125rem] last:border-b-0 max-md:grid-cols-1 max-md:gap-4 max-md:py-4">
@@ -39,7 +45,7 @@ const categoryMap = {
         categoryMap[item.category].label
       ]}
     >
-      {item.category}
+      {categoryLabelMap[item.category]}
     </p>
     <h3 class="mt-2 mb-[0.5625rem] text-base font-extrabold leading-tight text-white">
       <a href={item.href} class:list={["transition", categoryMap[item.category].hover]}>{item.title}</a>

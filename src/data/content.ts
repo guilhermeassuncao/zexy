@@ -32,8 +32,8 @@ type FeaturedListing = {
 };
 
 const offerFilterCategoriesByScope: Partial<Record<ContentScope, string[]>> = {
-  home: ["Todos", "games", "animes", "series"],
-  ofertas: ["Todos", "games", "animes", "series"]
+  home: ["Todos", "games", "animes", "series & filmes"],
+  ofertas: ["Todos", "games", "animes", "series & filmes"]
 };
 
 const offerLimitByScope: Record<ContentScope, number> = {
@@ -55,14 +55,14 @@ const newsTitleByScope: Record<Exclude<ContentScope, "ofertas">, string> = {
   home: "notícias",
   games: "últimas de games",
   animes: "últimas de animes",
-  series: "últimas de series"
+  series: "últimas de series & filmes"
 };
 
 const featuredTitleByScope: Record<Exclude<ContentScope, "ofertas">, string> = {
   home: "destaques",
   games: "destaques de games",
   animes: "destaques de animes",
-  series: "destaques de series"
+  series: "destaques de series & filmes"
 };
 
 const featuredSizeOrder: FeaturedItem["size"][] = ["large", "medium", "medium", "small", "small"];
