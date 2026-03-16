@@ -186,6 +186,62 @@ Quanto mais o grupo joga junto, mais a sinergia melhora — e mais satisfatória
 - **Aventura livre de grupo**: *Sea of Thieves*
 - **Progressão e desafio em equipe**: *Monster Hunter: World* ou *Don't Starve Together*
 
+<div class="post-carousel" data-post-carousel>
+<div class="post-carousel-track" data-post-carousel-track>
+<figure class="post-carousel-slide">
+<img src="https://res.cloudinary.com/ddjv5qfvw/image/upload/v1773656698/GP6SbXyjcgnIh3joxGb5PMM4_vbhdqg.jpg" alt="It Takes Two" loading="lazy" />
+<div class="post-carousel-overlay"></div>
+<figcaption class="post-carousel-copy">
+<p class="post-carousel-title">Melhor para dois jogadores: It Takes Two</p>
+<p class="post-carousel-text">A escolha mais forte para dupla que quer cooperação real, variedade de mecânicas e ritmo de maratona.</p>
+</figcaption>
+</figure>
+<figure class="post-carousel-slide">
+<img src="https://res.cloudinary.com/ddjv5qfvw/image/upload/v1773656806/057249cf707a2a733c876c0eb453bb018ee6ea09f3aea5c350f4d76f70840d00_n3zb52.jpg" alt="Overcooked 2" loading="lazy" />
+<div class="post-carousel-overlay"></div>
+<figcaption class="post-carousel-copy">
+<p class="post-carousel-title">Melhor para grupo casual: Overcooked! 2</p>
+<p class="post-carousel-text">Ideal para sessões rápidas, risadas imediatas e aquele caos divertido que funciona bem com amigos.</p>
+</figcaption>
+</figure>
+<figure class="post-carousel-slide">
+<img src="https://res.cloudinary.com/ddjv5qfvw/image/upload/v1773656912/8c8791bb1a64248f6cb3e4aae187ac179c8661beb15b8d5c_grz62t.jpg" alt="Helldivers 2" loading="lazy" />
+<div class="post-carousel-overlay"></div>
+<figcaption class="post-carousel-copy">
+<p class="post-carousel-title">Melhor para ação intensa: Helldivers 2</p>
+<p class="post-carousel-text">Perfeito para squad que quer missão atrás de missão, pressão constante e cooperação sob caos.</p>
+</figcaption>
+</figure>
+<figure class="post-carousel-slide">
+<img src="https://res.cloudinary.com/ddjv5qfvw/image/upload/v1773594664/91fe046f742042e3b31e57f7731dbe2226e1fd1e02a36223_koezge.jpg" alt="Minecraft" loading="lazy" />
+<div class="post-carousel-overlay"></div>
+<figcaption class="post-carousel-copy">
+<p class="post-carousel-title">Melhor para jogar sem pressa: Minecraft</p>
+<p class="post-carousel-text">Funciona muito bem para grupos que querem explorar, construir e passar horas em um ritmo mais livre.</p>
+</figcaption>
+</figure>
+<figure class="post-carousel-slide">
+<img src="https://res.cloudinary.com/ddjv5qfvw/image/upload/v1773657023/monsterhunworld_ygdb6j.jpg" alt="Monster Hunter World" loading="lazy" />
+<div class="post-carousel-overlay"></div>
+<figcaption class="post-carousel-copy">
+<p class="post-carousel-title">Melhor para desafio em equipe: Monster Hunter: World</p>
+<p class="post-carousel-text">A melhor pedida para grupo que gosta de progressão, estratégia e vitórias mais satisfatórias.</p>
+</figcaption>
+</figure>
+</div>
+<div class="post-carousel-nav">
+<button class="post-carousel-button" type="button" data-post-carousel-prev aria-label="Slide anterior">‹</button>
+<button class="post-carousel-button" type="button" data-post-carousel-next aria-label="Próximo slide">›</button>
+</div>
+<div class="post-carousel-dots">
+<button class="post-carousel-dot is-active" type="button" data-post-carousel-dot aria-label="Ir para slide 1"></button>
+<button class="post-carousel-dot" type="button" data-post-carousel-dot aria-label="Ir para slide 2"></button>
+<button class="post-carousel-dot" type="button" data-post-carousel-dot aria-label="Ir para slide 3"></button>
+<button class="post-carousel-dot" type="button" data-post-carousel-dot aria-label="Ir para slide 4"></button>
+<button class="post-carousel-dot" type="button" data-post-carousel-dot aria-label="Ir para slide 5"></button>
+</div>
+</div>
+
 Boa sessão e que venham muitas histórias (e fails épicos)!
 
 ## Perguntas frequentes sobre jogos cooperativos

@@ -184,11 +184,11 @@
 
   .post-content > img,
   .post-content > p > img {
-    @apply mx-auto w-3/4;
+    @apply mx-auto w-5/6;
   }
 
   .post-content .post-carousel {
-    @apply relative my-8 mx-auto w-3/4 overflow-hidden rounded-[1.5rem] border border-gray-light bg-black/20 shadow-panel;
+    @apply relative my-8 mx-auto w-5/6 overflow-hidden rounded-[1.5rem] border border-gray-light bg-black/20 shadow-panel;
   }
 
   .post-content .post-carousel-track {
@@ -209,7 +209,7 @@
   }
 
   .post-content .post-carousel-overlay {
-    @apply pointer-events-none absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent;
+    @apply pointer-events-none absolute inset-0 bg-gradient-to-t from-black/60 via-black/15 to-transparent;
   }
 
   .post-content .post-carousel-copy {
@@ -217,11 +217,11 @@
   }
 
   .post-content .post-carousel-title {
-    @apply max-w-xl font-orbitron text-[1.2rem] font-bold leading-tight text-white drop-shadow-[0_6px_24px_rgba(0,0,0,0.65)] max-md:text-[1rem];
+    @apply max-w-xl font-orbitron text-[1.2rem] font-bold leading-tight text-white drop-shadow-[0_4px_14px_rgba(0,0,0,0.4)] max-md:text-[1rem];
   }
 
   .post-content .post-carousel-text {
-    @apply mt-2 max-w-lg text-[0.8125rem] leading-5 text-white/80 drop-shadow-[0_4px_16px_rgba(0,0,0,0.6)] max-md:text-[0.75rem] max-md:leading-[1.15rem];
+    @apply mt-2 max-w-lg text-[0.8125rem] leading-5 text-white/90 drop-shadow-[0_3px_10px_rgba(0,0,0,0.32)] max-md:text-[0.75rem] max-md:leading-[1.15rem];
   }
 
   .post-content .post-carousel-nav {
@@ -270,7 +270,7 @@
   }
 
   .post-content iframe {
-    @apply mx-auto aspect-video w-3/4 rounded-2xl border border-gray-light shadow-panel;
+    @apply mx-auto aspect-video w-5/6 rounded-2xl border border-gray-light shadow-panel;
   }
 
   @media (max-width: 48.75rem) {

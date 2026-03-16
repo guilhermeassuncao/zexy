@@ -179,11 +179,67 @@ Em vez de apostar em choque ou exagero dramático, a série trabalha personagens
 
 ## Qual escolher primeiro?
 
-- Para tensão imediata: `Chernobyl`, `Bodyguard` ou `Black Bird`
-- Para algo humano e muito bem escrito: `Fleabag` ou `Normal People`
-- Para suspense com investigação: `Mare of Easttown` ou `Unbelievable`
+- Para tensão imediata: `Chernobyl`
+- Para algo humano e muito bem escrito: `Normal People`
+- Para suspense com investigação: `Mare of Easttown`
 - Para caos emocional mais moderno: `Beef`
 - Para episódios curtos e energia alta: `The Bear`
+
+<div class="post-carousel" data-post-carousel>
+<div class="post-carousel-track" data-post-carousel-track>
+<figure class="post-carousel-slide">
+<img src="https://res.cloudinary.com/ddjv5qfvw/image/upload/v1773658469/cq5dam.web_.1200.675_omadzg.jpg" alt="Chernobyl" loading="lazy" />
+<div class="post-carousel-overlay"></div>
+<figcaption class="post-carousel-copy">
+<p class="post-carousel-title">Melhor para tensão imediata: Chernobyl</p>
+<p class="post-carousel-text">A melhor escolha para quem quer uma minissérie pesada, intensa e quase impossível de pausar.</p>
+</figcaption>
+</figure>
+<figure class="post-carousel-slide">
+<img src="https://res.cloudinary.com/ddjv5qfvw/image/upload/v1773658652/20073900906007_u13uvt.jpg" alt="The Bear" loading="lazy" />
+<div class="post-carousel-overlay"></div>
+<figcaption class="post-carousel-copy">
+<p class="post-carousel-title">Melhor para energia alta: The Bear</p>
+<p class="post-carousel-text">Perfeita para quem gosta de episódios curtos, tensão constante e personagens sempre no limite.</p>
+</figcaption>
+</figure>
+<figure class="post-carousel-slide">
+<img src="https://res.cloudinary.com/ddjv5qfvw/image/upload/v1773596592/copy_of_26af95fe4f36019092f711ed76615d151fb52dc0fa6847b2185ea7f28d0a80f4_rgvmcs_14ad76.jpg" alt="Mare of Easttown" loading="lazy" />
+<div class="post-carousel-overlay"></div>
+<figcaption class="post-carousel-copy">
+<p class="post-carousel-title">Melhor para suspense investigativo: Mare of Easttown</p>
+<p class="post-carousel-text">Ótima pedida para quem quer mistério, clima melancólico e um caso que prende até o fim.</p>
+</figcaption>
+</figure>
+<figure class="post-carousel-slide">
+<img src="https://res.cloudinary.com/ddjv5qfvw/image/upload/v1773658523/Normal-People_uior8f.jpg" alt="Normal People" loading="lazy" />
+<div class="post-carousel-overlay"></div>
+<figcaption class="post-carousel-copy">
+<p class="post-carousel-title">Melhor para drama intimista: Normal People</p>
+<p class="post-carousel-text">A recomendação mais forte para quem prefere relações humanas complexas e um ritmo mais sensível.</p>
+</figcaption>
+</figure>
+<figure class="post-carousel-slide">
+<img src="https://res.cloudinary.com/ddjv5qfvw/image/upload/v1773658566/beef-serie-netflix-destaque-1280x720_hhyfrr.jpg" alt="Beef" loading="lazy" />
+<div class="post-carousel-overlay"></div>
+<figcaption class="post-carousel-copy">
+<p class="post-carousel-title">Melhor para caos emocional: Beef</p>
+<p class="post-carousel-text">Funciona muito bem para quem quer algo moderno, desconfortável, engraçado e imprevisível.</p>
+</figcaption>
+</figure>
+</div>
+<div class="post-carousel-nav">
+<button class="post-carousel-button" type="button" data-post-carousel-prev aria-label="Slide anterior">‹</button>
+<button class="post-carousel-button" type="button" data-post-carousel-next aria-label="Próximo slide">›</button>
+</div>
+<div class="post-carousel-dots">
+<button class="post-carousel-dot is-active" type="button" data-post-carousel-dot aria-label="Ir para slide 1"></button>
+<button class="post-carousel-dot" type="button" data-post-carousel-dot aria-label="Ir para slide 2"></button>
+<button class="post-carousel-dot" type="button" data-post-carousel-dot aria-label="Ir para slide 3"></button>
+<button class="post-carousel-dot" type="button" data-post-carousel-dot aria-label="Ir para slide 4"></button>
+<button class="post-carousel-dot" type="button" data-post-carousel-dot aria-label="Ir para slide 5"></button>
+</div>
+</div>
 
 ## Perguntas frequentes sobre séries curtas
 

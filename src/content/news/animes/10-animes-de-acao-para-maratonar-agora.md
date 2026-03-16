@@ -186,6 +186,62 @@ Mesmo sendo uma paródia, continua sendo um dos animes mais divertidos para mara
 - Para algo estranho, pesado e intenso: `Hell's Paradise` ou `Chainsaw Man`
 - Para uma opção mais leve e divertida: `One Punch Man` ou `Mob Psycho 100`
 
+<div class="post-carousel" data-post-carousel>
+<div class="post-carousel-track" data-post-carousel-track>
+<figure class="post-carousel-slide">
+<img src="https://res.cloudinary.com/ddjv5qfvw/image/upload/v1773596264/GRDV0019R-backdrop_wide_h2sfdm.jpg" alt="Jujutsu Kaisen" loading="lazy" />
+<div class="post-carousel-overlay"></div>
+<figcaption class="post-carousel-copy">
+<p class="post-carousel-title">Melhor para ação moderna: Jujutsu Kaisen</p>
+<p class="post-carousel-text">Ótima porta de entrada para quem quer lutas rápidas, elenco carismático e produção visual forte.</p>
+</figcaption>
+</figure>
+<figure class="post-carousel-slide">
+<img src="https://res.cloudinary.com/ddjv5qfvw/image/upload/v1773658041/6e945bba5861dc0d525b8e85317aa808_yjuph9.jpg" alt="Demon Slayer" loading="lazy" />
+<div class="post-carousel-overlay"></div>
+<figcaption class="post-carousel-copy">
+<p class="post-carousel-title">Melhor para visual impressionante: Demon Slayer</p>
+<p class="post-carousel-text">Funciona muito bem para quem quer maratonar algo bonito, direto e emocionalmente fácil de acompanhar.</p>
+</figcaption>
+</figure>
+<figure class="post-carousel-slide">
+<img src="https://res.cloudinary.com/ddjv5qfvw/image/upload/v1773658131/76760bfa32f7d503ec345d067f5b69cfd2825ed5a6f5b75a7566ac9ca4847dd7._SX1080_FMjpg__xtzlse.jpg" alt="Attack on Titan" loading="lazy" />
+<div class="post-carousel-overlay"></div>
+<figcaption class="post-carousel-copy">
+<p class="post-carousel-title">Melhor para tensão constante: Attack on Titan</p>
+<p class="post-carousel-text">A recomendação mais forte para quem quer urgência, escala e aquela maratona que pede próximo episódio.</p>
+</figcaption>
+</figure>
+<figure class="post-carousel-slide">
+<img src="https://res.cloudinary.com/ddjv5qfvw/image/upload/v1773658228/c912a1ce1d58e50f37495f640cb61839c7183adb78470593267cabaedf4fd3c8._SX1080_FMjpg__plnrpf.jpg" alt="Fullmetal Alchemist Brotherhood" loading="lazy" />
+<div class="post-carousel-overlay"></div>
+<figcaption class="post-carousel-copy">
+<p class="post-carousel-title">Melhor para história completa: Fullmetal Alchemist: Brotherhood</p>
+<p class="post-carousel-text">Perfeito para quem prefere uma narrativa mais fechada, consistente e com ótimo equilíbrio entre ação e drama.</p>
+</figcaption>
+</figure>
+<figure class="post-carousel-slide">
+<img src="https://res.cloudinary.com/ddjv5qfvw/image/upload/v1773658294/20143540895268_o6nura.jpg" alt="Chainsaw Man" loading="lazy" />
+<div class="post-carousel-overlay"></div>
+<figcaption class="post-carousel-copy">
+<p class="post-carousel-title">Melhor para algo caótico e pesado: Chainsaw Man</p>
+<p class="post-carousel-text">A escolha certa para quem quer ação agressiva, humor estranho e uma energia menos previsível.</p>
+</figcaption>
+</figure>
+</div>
+<div class="post-carousel-nav">
+<button class="post-carousel-button" type="button" data-post-carousel-prev aria-label="Slide anterior">‹</button>
+<button class="post-carousel-button" type="button" data-post-carousel-next aria-label="Próximo slide">›</button>
+</div>
+<div class="post-carousel-dots">
+<button class="post-carousel-dot is-active" type="button" data-post-carousel-dot aria-label="Ir para slide 1"></button>
+<button class="post-carousel-dot" type="button" data-post-carousel-dot aria-label="Ir para slide 2"></button>
+<button class="post-carousel-dot" type="button" data-post-carousel-dot aria-label="Ir para slide 3"></button>
+<button class="post-carousel-dot" type="button" data-post-carousel-dot aria-label="Ir para slide 4"></button>
+<button class="post-carousel-dot" type="button" data-post-carousel-dot aria-label="Ir para slide 5"></button>
+</div>
+</div>
+
 ## Perguntas frequentes sobre animes de ação
 
 ### Qual é o melhor anime de ação para começar?
