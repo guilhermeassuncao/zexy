@@ -183,9 +183,9 @@ Exemplo:
 
 # Bloco de decisão
 
-Sempre incluir:
+Incluir `## Qual escolher primeiro?` apenas em posts de lista, ranking, comparativo ou recomendação com múltiplas obras.
 
-## Qual escolher primeiro?
+Não usar esse bloco em posts focados em um único anime, jogo, série, temporada, personagem ou notícia isolada.
 
 Exemplo:
 
@@ -221,6 +221,7 @@ Regras:
 - não inventar URL
 - usar alt descritivo
 - evitar excesso de imagens
+- não colocar imagem e vídeo em sequência imediata; sempre separar com pelo menos 1 parágrafo de texto ou mover um dos dois para outro bloco
 
 ---
 
@@ -236,6 +237,8 @@ Embed padrão:
 ></iframe>
 
 Sempre usar youtube.com/embed.
+
+Evitar embed logo após imagem ou figure. Quando houver vídeo, ele deve entrar em um ponto com respiro editorial, não colado em imagem anterior.
 
 ---
 

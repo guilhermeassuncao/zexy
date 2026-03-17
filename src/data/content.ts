@@ -1,4 +1,6 @@
 import { getCollection, type CollectionEntry } from "astro:content";
+import { stat } from "node:fs/promises";
+import { resolve } from "node:path";
 import type { Category, FeaturedItem, NewsItem, ProductItem } from "./home";
 import type { PageKey } from "./pages";
 
@@ -72,8 +74,38 @@ const postDateFormatter = new Intl.DateTimeFormat("pt-BR", {
   year: "numeric"
 });
 
-function sortByNewest<T extends { data: { publishedAt: Date } }>(items: T[]) {
-  return items.sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime());
+function getPrimarySortDate(entry: { data: { publishedAt: Date; updatedAt?: Date } }) {
+  return (entry.data.updatedAt ?? entry.data.publishedAt).getTime();
+}
+
+async function getEntryFileMtime(entry: CollectionEntry<"news"> | CollectionEntry<"offers">) {
+  const sourcePath = resolve(process.cwd(), "src/content", `${entry.collection}/${entry.id}`);
+  const fileStats = await stat(sourcePath);
+  return fileStats.mtimeMs;
+}
+
+async function sortByNewest<T extends CollectionEntry<"news"> | CollectionEntry<"offers">>(items: T[]) {
+  const itemsWithTimestamps = await Promise.all(
+    items.map(async (item) => ({
+      item,
+      primaryDate: getPrimarySortDate(item),
+      fileMtime: await getEntryFileMtime(item)
+    }))
+  );
+
+  itemsWithTimestamps.sort((a, b) => {
+    if (b.primaryDate !== a.primaryDate) {
+      return b.primaryDate - a.primaryDate;
+    }
+
+    if (b.fileMtime !== a.fileMtime) {
+      return b.fileMtime - a.fileMtime;
+    }
+
+    return b.item.slug.localeCompare(a.item.slug);
+  });
+
+  return itemsWithTimestamps.map(({ item }) => item);
 }
 
 function getNewsSlug(entry: CollectionEntry<"news">) {
@@ -127,7 +159,8 @@ export async function getOffersListing(scope: ContentScope): Promise<OffersListi
     return data.category === scope;
   });
 
-  const items = sortByNewest(entries).slice(0, offerLimitByScope[scope]).map(toOfferListItem);
+  const sortedEntries = await sortByNewest(entries);
+  const items = sortedEntries.slice(0, offerLimitByScope[scope]).map(toOfferListItem);
 
   return {
     title: scope === "ofertas" ? "" : "ofertas",
@@ -142,7 +175,8 @@ export async function getNewsListing(scope: Exclude<ContentScope, "ofertas">): P
     return data.category === scope;
   });
 
-  const items = sortByNewest(entries).slice(0, newsLimitByScope[scope]).map(toNewsListItem);
+  const sortedEntries = await sortByNewest(entries);
+  const items = sortedEntries.slice(0, newsLimitByScope[scope]).map(toNewsListItem);
 
   return {
     title: newsTitleByScope[scope],
@@ -156,7 +190,8 @@ export async function getFeaturedListing(scope: Exclude<ContentScope, "ofertas">
     return data.category === scope;
   });
 
-  const latestNews = sortByNewest(news).map((entry) => ({
+  const sortedNews = await sortByNewest(news);
+  const latestNews = sortedNews.map((entry) => ({
     title: entry.data.title,
     category: entry.data.category,
     image: entry.data.image,

@@ -2,7 +2,7 @@
 title: "10 séries curtas para maratonar no fim de semana"
 category: "series"
 publishedAt: 2026-03-15
-updatedAt: 2026-03-15
+updatedAt: 2026-03-16
 image: "https://res.cloudinary.com/ddjv5qfvw/image/upload/v1773596592/copy_of_26af95fe4f36019092f711ed76615d151fb52dc0fa6847b2185ea7f28d0a80f4_rgvmcs_14ad76.jpg"
 alt: "Pessoa assistindo série em tela grande durante a noite"
 description: "Séries curtas e minisséries para maratonar no fim de semana, com opções intensas, leves e rápidas para terminar em poucos dias."
@@ -22,11 +22,15 @@ Pensando nisso, esta lista reúne **10 séries curtas perfeitas para maratonar n
 
 Se a ideia é **assistir uma série completa em poucos dias**, estas são algumas das melhores opções.
 
+`Onde assistir` consultado no Brasil em **16 de março de 2026**. Como os catálogos mudam, a disponibilidade pode ser diferente depois desta data.
+
 ## 1. Chernobyl
 
 Minissérie curta, pesada e extremamente eficiente. `Chernobyl` usa tensão constante, direção segura e senso real de urgência para construir uma maratona intensa, daquelas que dificilmente você interrompe no meio.
 
 Também impressiona pela forma como transforma contexto histórico e informação técnica em drama de altíssimo nível. Mesmo conhecendo o desfecho da tragédia, a série mantém o impacto emocional até o último episódio.
+
+**Onde assistir no Brasil:** HBO Max.
 
 <iframe
   src="https://www.youtube.com/embed/s9APLXM9Ei8"
@@ -42,6 +46,8 @@ Mesmo com episódios relativamente curtos, `The Bear` mantém uma energia nervos
 
 O grande acerto está em transformar o cotidiano de uma cozinha profissional em algo genuinamente intenso.
 
+**Onde assistir no Brasil:** Disney+.
+
 <iframe
   src="https://www.youtube.com/embed/vOyRo-Yjr2Q"
   title="Trailer de The Bear"
@@ -55,6 +61,8 @@ O grande acerto está em transformar o cotidiano de uma cozinha profissional em 
 `Fleabag` entra rápido, avança com ritmo forte e entrega um dos textos mais afiados da televisão recente. É uma ótima escolha para quem quer algo curto, inteligente e emocionalmente mais complexo do que parece no início.
 
 O humor ácido e a quebra constante da quarta parede fazem com que a protagonista conduza a série com uma personalidade única.
+
+**Onde assistir no Brasil:** Amazon Prime Video.
 
 <iframe
   src="https://www.youtube.com/embed/4f3y0t3EaCg"
@@ -70,6 +78,8 @@ Excelente recomendação para quem gosta de suspense policial com clima de cidad
 
 A série constrói ambiente, relações e desgaste emocional de forma gradual, o que faz o mistério ganhar mais peso conforme avança.
 
+**Onde assistir no Brasil:** HBO Max.
+
 <iframe
   src="https://www.youtube.com/embed/42d1aF1QkEY"
   title="Trailer de Mare of Easttown"
@@ -83,6 +93,8 @@ A série constrói ambiente, relações e desgaste emocional de forma gradual, o
 Direta, tensa e muito fácil de engatar. `Bodyguard` trabalha conspiração política, segurança nacional e paranoia de forma muito eficiente.
 
 É uma ótima escolha para quem quer suspense rápido e episódios que sempre terminam com vontade de assistir o próximo.
+
+**Onde assistir no Brasil:** Netflix.
 
 <iframe
   src="https://www.youtube.com/embed/f1aWWNpaiIQ"
@@ -98,6 +110,8 @@ Direta, tensa e muito fácil de engatar. `Bodyguard` trabalha conspiração pol�
 
 A série funciona muito bem graças ao roteiro afiado e às performances intensas. O resultado é uma maratona desconfortável, engraçada e extremamente envolvente.
 
+**Onde assistir no Brasil:** Netflix.
+
 <iframe
   src="https://www.youtube.com/embed/dXcegNot31g"
   title="Trailer de Beef"
@@ -111,6 +125,8 @@ A série funciona muito bem graças ao roteiro afiado e às performances intensa
 Para quem prefere algo mais intimista, `Normal People` oferece uma maratona emocionalmente forte. A série aposta em silêncio, tempo e nuances de relacionamento em vez de grandes reviravoltas.
 
 Quando você entra no ritmo da narrativa, a conexão com os personagens cresce episódio após episódio.
+
+**Onde assistir no Brasil:** indisponível em streaming no Brasil no momento.
 
 <iframe
   src="https://www.youtube.com/embed/x1JQuWxt3cE"
@@ -126,6 +142,8 @@ Para quem gosta de drama de época com mistério psicológico, `Alias Grace` fun
 
 É uma produção elegante, com atmosfera constante de dúvida sobre o que realmente aconteceu.
 
+**Onde assistir no Brasil:** Netflix.
+
 <iframe
   src="https://www.youtube.com/embed/o8HGOAcWr1o"
   title="Trailer de Alias Grace"
@@ -139,6 +157,8 @@ Para quem gosta de drama de época com mistério psicológico, `Alias Grace` fun
 `Black Bird` é suspense criminal conduzido com ritmo seguro e ótima atmosfera. A série aposta em tensão psicológica, conversas carregadas de subtexto e um jogo mental constante entre personagens.
 
 Mesmo com pouca ação direta, a sensação de perigo cresce episódio após episódio.
+
+**Onde assistir no Brasil:** Apple TV+.
 
 <iframe
   src="https://www.youtube.com/embed/aH1FOkJys3Y"
@@ -154,6 +174,8 @@ Mesmo com pouca ação direta, a sensação de perigo cresce episódio após epi
 
 Em vez de apostar em choque ou exagero dramático, a série trabalha personagens e procedimentos com sobriedade, criando um suspense mais humano e realista.
 
+**Onde assistir no Brasil:** Netflix.
+
 <iframe
   src="https://www.youtube.com/embed/RM_nfQbSsZ0"
   title="Trailer de Unbelievable"
@@ -164,18 +186,18 @@ Em vez de apostar em choque ou exagero dramático, a série trabalha personagens
 
 ## Comparativo rapido
 
-| Série | Perfil ideal | Clima | Episódios para engatar | Força principal |
+| Série | Onde assistir | Perfil ideal | Clima | Força principal |
 | --- | --- | --- | --- | --- |
-| Chernobyl | quem quer tensão pesada | sufocante | 1 | direção e impacto |
-| The Bear | quem quer energia alta | nervoso | 1 a 2 | ritmo e diálogos |
-| Fleabag | quem quer texto afiado | ácido | 1 | humor e personalidade |
-| Mare of Easttown | quem quer investigação | melancólico | 2 | atmosfera e mistério |
-| Bodyguard | quem quer suspense rápido | tenso | 1 | urgência e conspiração |
-| Beef | quem quer caos emocional | desconfortável | 1 a 2 | escrita e performances |
-| Normal People | quem quer drama íntimo | sensível | 2 | relação e delicadeza |
-| Alias Grace | quem quer mistério de época | elegante | 1 a 2 | ambiguidade e clima |
-| Black Bird | quem quer tensão psicológica | sombrio | 1 a 2 | atmosfera e atuação |
-| Unbelievable | quem quer investigação séria | sóbrio | 1 a 2 | cuidado e construção |
+| Chernobyl | HBO Max | quem quer tensão pesada | sufocante | direção e impacto |
+| The Bear | Disney+ | quem quer energia alta | nervoso | ritmo e diálogos |
+| Fleabag | Prime Video | quem quer texto afiado | ácido | humor e personalidade |
+| Mare of Easttown | HBO Max | quem quer investigação | melancólico | atmosfera e mistério |
+| Bodyguard | Netflix | quem quer suspense rápido | tenso | urgência e conspiração |
+| Beef | Netflix | quem quer caos emocional | desconfortável | escrita e performances |
+| Normal People | indisponível no Brasil | quem quer drama íntimo | sensível | relação e delicadeza |
+| Alias Grace | Netflix | quem quer mistério de época | elegante | ambiguidade e clima |
+| Black Bird | Apple TV+ | quem quer tensão psicológica | sombrio | atmosfera e atuação |
+| Unbelievable | Netflix | quem quer investigação séria | sóbrio | cuidado e construção |
 
 ## Qual escolher primeiro?
 
