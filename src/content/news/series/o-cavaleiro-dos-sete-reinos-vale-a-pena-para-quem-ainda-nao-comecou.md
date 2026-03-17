@@ -5,7 +5,7 @@ publishedAt: 2026-03-16
 updatedAt: 2026-03-16
 image: "https://res.cloudinary.com/ddjv5qfvw/image/upload/v1773705808/Cronologia_Cavaleiro_Sete_Reinos_Game_of_Thrones_1d185dbe8a.jpg_wkbpj5.jpg"
 alt: "Ser Duncan e Egg em imagem promocional de O Cavaleiro dos Sete Reinos"
-description: "A 1ª temporada de O Cavaleiro dos Sete Reinos já terminou e é uma entrada leve para Westeros. Veja onde assistir e se precisa ter visto Game of Thrones."
+description: "Veja onde assistir, o que esperar e se precisa ter visto Game of Thrones."
 tags:
   - o cavaleiro dos sete reinos
   - a knight of the seven kingdoms

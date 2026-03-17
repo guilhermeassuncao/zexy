@@ -273,11 +273,49 @@
     @apply mx-auto aspect-video w-5/6 rounded-2xl border border-gray-light shadow-panel;
   }
 
+  .post-content .lite-youtube {
+    @apply relative mx-auto my-6 aspect-video w-5/6 overflow-hidden rounded-2xl border border-gray-light bg-black shadow-panel;
+  }
+
+  .post-content .lite-youtube-poster {
+    @apply my-0 h-full w-full border-0 rounded-none object-cover;
+  }
+
+  .post-content .lite-youtube::after {
+    content: "";
+    @apply pointer-events-none absolute inset-0 bg-gradient-to-t from-black/65 via-black/20 to-black/10;
+  }
+
+  .post-content .lite-youtube-button {
+    @apply absolute inset-0 z-[1] flex h-full w-full flex-col items-center justify-center gap-4 bg-transparent px-6 text-center text-white transition;
+  }
+
+  .post-content .lite-youtube:hover .lite-youtube-button {
+    @apply bg-black/10;
+  }
+
+  .post-content .lite-youtube-play {
+    @apply relative block h-20 w-20 rounded-full bg-red shadow-[0_10px_30px_rgba(0,0,0,0.45)];
+  }
+
+  .post-content .lite-youtube-play::before {
+    content: "";
+    border-left: 1.125rem solid #fff;
+    border-top: 0.75rem solid transparent;
+    border-bottom: 0.75rem solid transparent;
+    @apply absolute left-1/2 top-1/2 ml-1 -translate-x-1/2 -translate-y-1/2;
+  }
+
+  .post-content .lite-youtube-title {
+    @apply max-w-2xl font-orbitron text-lg font-bold leading-tight text-white drop-shadow-[0_4px_14px_rgba(0,0,0,0.45)] max-md:text-base;
+  }
+
   @media (max-width: 48.75rem) {
     .post-content figure,
     .post-content > img,
     .post-content > p > img,
-    .post-content iframe {
+    .post-content iframe,
+    .post-content .lite-youtube {
       @apply w-full;
     }
 
@@ -291,6 +329,14 @@
 
     .post-content .post-carousel-dots {
       @apply bottom-3 gap-1.5 px-2.5 py-1.5;
+    }
+
+    .post-content .lite-youtube-play {
+      @apply h-16 w-16;
+    }
+
+    .post-content .lite-youtube-title {
+      @apply text-sm;
     }
 
     .post-content table {

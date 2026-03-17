@@ -11,6 +11,7 @@ interface Props {
   modifiedTime?: string;
   robots?: string;
   structuredData?: Record<string, unknown> | Array<Record<string, unknown>>;
+  enablePostCarousel?: boolean;
 }
 
 const {
@@ -22,7 +23,8 @@ const {
   publishedTime,
   modifiedTime,
   robots = "index, follow, max-image-preview:large",
-  structuredData
+  structuredData,
+  enablePostCarousel = false
 } = Astro.props;
 const baseUrl = import.meta.env.BASE_URL;
 const site = Astro.site ?? new URL("https://zexy.com.br");
@@ -46,16 +48,8 @@ const structuredDataEntries = [
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap"
-      rel="stylesheet"
-    />
+    <link rel="preconnect" href="https://res.cloudinary.com" crossorigin />
+    <link rel="dns-prefetch" href="https://res.cloudinary.com" />
     <link rel="icon" type="image/svg+xml" href={`${baseUrl}favicon.svg`} />
     <link rel="canonical" href={canonicalUrl} />
     <title>{title}</title>
@@ -82,75 +76,97 @@ const structuredDataEntries = [
   <body class="bg-site-gradient pt-[5.625rem] max-md:pt-0">
     <slot />
 
-    <script type="module" is:inline>
-      import ScrollReveal from "https://esm.sh/scrollreveal@4.0.9";
+    {
+      enablePostCarousel && (
+        <script is:inline>
+          const initPostCarousels = () => {
+            document.querySelectorAll("[data-post-carousel]").forEach((carousel) => {
+              if (!(carousel instanceof HTMLElement)) return;
 
-      if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-        const sr = ScrollReveal({
-          distance: "1.5rem",
-          duration: 900,
-          easing: "cubic-bezier(0.22, 1, 0.36, 1)",
-          interval: 80,
-          reset: false,
-          mobile: true
+              const track = carousel.querySelector("[data-post-carousel-track]");
+              const prev = carousel.querySelector("[data-post-carousel-prev]");
+              const next = carousel.querySelector("[data-post-carousel-next]");
+              const dots = Array.from(carousel.querySelectorAll("[data-post-carousel-dot]"));
+
+              if (!(track instanceof HTMLElement)) return;
+
+              const getSlideWidth = () => track.clientWidth;
+              const getIndex = () => {
+                const width = getSlideWidth();
+                if (!width) return 0;
+                return Math.round(track.scrollLeft / width);
+              };
+
+              const updateDots = () => {
+                const activeIndex = getIndex();
+                dots.forEach((dot, index) => {
+                  dot.classList.toggle("is-active", index === activeIndex);
+                });
+              };
+
+              const scrollToIndex = (index) => {
+                const maxIndex = Math.max(dots.length - 1, 0);
+                const targetIndex =
+                  index < 0 ? maxIndex : index > maxIndex ? 0 : Math.min(Math.max(index, 0), maxIndex);
+
+                track.scrollTo({
+                  left: targetIndex * getSlideWidth(),
+                  behavior: "smooth"
+                });
+              };
+
+              prev?.addEventListener("click", () => scrollToIndex(getIndex() - 1));
+              next?.addEventListener("click", () => scrollToIndex(getIndex() + 1));
+
+              dots.forEach((dot, index) => {
+                dot.addEventListener("click", () => scrollToIndex(index));
+              });
+
+              track.addEventListener("scroll", updateDots, { passive: true });
+              window.addEventListener("resize", updateDots, { passive: true });
+              updateDots();
+            });
+          };
+
+          if ("requestIdleCallback" in window) {
+            window.requestIdleCallback(initPostCarousels, { timeout: 1200 });
+          } else {
+            window.addEventListener("load", initPostCarousels, { once: true });
+          }
+        </script>
+      )
+    }
+    <script is:inline>
+      const initLiteYouTube = () => {
+        document.querySelectorAll("[data-lite-youtube]").forEach((container) => {
+          if (!(container instanceof HTMLElement) || container.dataset.bound === "true") return;
+
+          const button = container.querySelector(".lite-youtube-button");
+          const embed = container.dataset.embed;
+          const label = container.getAttribute("aria-label") ?? "Trailer";
+
+          if (!(button instanceof HTMLButtonElement) || !embed) return;
+
+          container.dataset.bound = "true";
+
+          button.addEventListener("click", () => {
+            const iframe = document.createElement("iframe");
+            iframe.src = embed;
+            iframe.title = label;
+            iframe.loading = "eager";
+            iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+            iframe.allowFullscreen = true;
+            iframe.className = "h-full w-full rounded-none border-0";
+            container.replaceChildren(iframe);
+          });
         });
+      };
 
-        sr.reveal(".featured-section", { origin: "bottom" });
-        sr.reveal(".page-hero", { origin: "bottom" });
-        sr.reveal(".featured-section article", { origin: "bottom", interval: 100 });
-        sr.reveal(".offers-section", { origin: "bottom", delay: 120 });
-        sr.reveal(".offers-section article", { origin: "bottom", interval: 90 });
-        sr.reveal(".news-section", { origin: "bottom", delay: 120 });
-        sr.reveal(".news-section li", { origin: "bottom", interval: 70 });
-        sr.reveal(".site-footer", { origin: "bottom", delay: 140 });
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", initLiteYouTube, { once: true });
+      } else {
+        initLiteYouTube();
       }
-
-      document.querySelectorAll("[data-post-carousel]").forEach((carousel) => {
-        if (!(carousel instanceof HTMLElement)) return;
-
-        const track = carousel.querySelector("[data-post-carousel-track]");
-        const prev = carousel.querySelector("[data-post-carousel-prev]");
-        const next = carousel.querySelector("[data-post-carousel-next]");
-        const dots = Array.from(carousel.querySelectorAll("[data-post-carousel-dot]"));
-
-        if (!(track instanceof HTMLElement)) return;
-
-        const getSlideWidth = () => track.clientWidth;
-        const getIndex = () => {
-          const width = getSlideWidth();
-          if (!width) return 0;
-          return Math.round(track.scrollLeft / width);
-        };
-
-        const updateDots = () => {
-          const activeIndex = getIndex();
-          dots.forEach((dot, index) => {
-            dot.classList.toggle("is-active", index === activeIndex);
-          });
-        };
-
-        const scrollToIndex = (index) => {
-          const maxIndex = Math.max(dots.length - 1, 0);
-          const targetIndex =
-            index < 0 ? maxIndex : index > maxIndex ? 0 : Math.min(Math.max(index, 0), maxIndex);
-
-          track.scrollTo({
-            left: targetIndex * getSlideWidth(),
-            behavior: "smooth"
-          });
-        };
-
-        prev?.addEventListener("click", () => scrollToIndex(getIndex() - 1));
-        next?.addEventListener("click", () => scrollToIndex(getIndex() + 1));
-
-        dots.forEach((dot, index) => {
-          dot.addEventListener("click", () => scrollToIndex(index));
-        });
-
-        track.addEventListener("scroll", () => updateDots(), { passive: true });
-        window.addEventListener("resize", () => updateDots(), { passive: true });
-        updateDots();
-      });
     </script>
   </body>
 </html>

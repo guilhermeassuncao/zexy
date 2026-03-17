@@ -5,7 +5,7 @@ publishedAt: 2026-03-16
 updatedAt: 2026-03-16
 image: "https://res.cloudinary.com/ddjv5qfvw/image/upload/v1773706978/game-of-thrones-background-92acb30ilmkjbmu9_bapvae.jpg"
 alt: "Elenco principal de Game of Thrones em imagem promocional"
-description: "Game of Thrones ainda vale a pena para quem nunca assistiu. Veja onde ver no Brasil, quantas temporadas são e o que esperar da série."
+description: "Veja onde assistir, quantas temporadas são e o que esperar da série."
 tags:
   - game of thrones
   - a guerra dos tronos

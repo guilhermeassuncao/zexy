@@ -5,7 +5,7 @@ publishedAt: 2026-03-15
 updatedAt: 2026-03-15
 image: "https://res.cloudinary.com/ddjv5qfvw/image/upload/v1773594664/91fe046f742042e3b31e57f7731dbe2226e1fd1e02a36223_koezge.jpg"
 alt: "Grupo de amigos jogando cooperativo no fim de semana – arte conceitual"
-description: "Uma seleção de jogos cooperativos para jogar em dupla ou com amigos no fim de semana, com estilos que vão de caos divertido a ação intensa."
+description: "Uma seleção de jogos cooperativos para jogar no fim de semana."
 tags:
   - jogos cooperativos
   - games

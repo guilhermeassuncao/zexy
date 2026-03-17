@@ -38,8 +38,8 @@ export default {
         panel: "0 0.5rem 1.5rem rgba(0, 0, 0, 0.45)"
       },
       fontFamily: {
-        sans: ["Inter", "Arial", "Helvetica", "sans-serif"],
-        orbitron: ["Orbitron", "Inter", "Arial", "Helvetica", "sans-serif"]
+        sans: ["system-ui", "-apple-system", "BlinkMacSystemFont", "\"Segoe UI\"", "sans-serif"],
+        orbitron: ["\"Trebuchet MS\"", "Verdana", "\"Segoe UI\"", "sans-serif"]
       },
       backgroundImage: {
         "site-gradient": "linear-gradient(180deg, #2a2835 0%, #22212c 36%, #17161f 100%)",

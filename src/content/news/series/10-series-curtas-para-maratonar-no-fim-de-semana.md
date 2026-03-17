@@ -5,7 +5,7 @@ publishedAt: 2026-03-15
 updatedAt: 2026-03-16
 image: "https://res.cloudinary.com/ddjv5qfvw/image/upload/v1773596592/copy_of_26af95fe4f36019092f711ed76615d151fb52dc0fa6847b2185ea7f28d0a80f4_rgvmcs_14ad76.jpg"
 alt: "Pessoa assistindo série em tela grande durante a noite"
-description: "Séries curtas e minisséries para maratonar no fim de semana, com opções intensas, leves e rápidas para terminar em poucos dias."
+description: "Uma seleção de séries curtas para maratonar no fim de semana."
 tags:
   - series
   - minisséries

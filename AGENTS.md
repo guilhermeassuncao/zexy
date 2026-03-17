@@ -91,6 +91,16 @@ Campos possíveis:
 - publishedAt
 - image
 - alt (opcional)
+- description (fortemente recomendado)
+
+Regras para `description`:
+
+- escrever descrição curta e direta
+- priorizar de 8 a 16 palavras
+- usar no máximo 1 ideia principal e 1 complemento útil
+- evitar repetir o título inteiro
+- pensar na descrição como subtítulo do hero no mobile
+- evitar listas longas, datas excessivas e frases com muitas vírgulas
 
 ---
 
@@ -220,6 +230,7 @@ Regras:
 - usar imagem real
 - não inventar URL
 - usar alt descritivo
+- quando a imagem fizer parte do corpo editorial, preferir `figure` com `figcaption`
 - evitar excesso de imagens
 - não colocar imagem e vídeo em sequência imediata; sempre separar com pelo menos 1 parágrafo de texto ou mover um dos dois para outro bloco
 

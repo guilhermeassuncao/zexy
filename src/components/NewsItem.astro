@@ -1,11 +1,15 @@
 ---
 import type { NewsListItem } from "../data/content";
+import { buildCloudinarySrcSet, optimizeCloudinaryImage } from "../utils/images";
 
 interface Props {
   item: NewsListItem;
 }
 
 const { item } = Astro.props;
+const imageSrc = optimizeCloudinaryImage(item.image, { width: 344, quality: "auto:eco" });
+const imageSrcSet = buildCloudinarySrcSet(item.image, [172, 344, 516, 688]);
+const imageSizes = "(max-width: 48.75rem) 100vw, 172px";
 
 const categoryMap = {
   games: {
@@ -33,9 +37,14 @@ const categoryLabelMap = {
   <a href={item.href}>
     <img
       class="aspect-video w-full rounded-lg object-cover"
-      src={item.image}
+      src={imageSrc}
+      srcset={imageSrcSet}
+      sizes={imageSizes}
       alt={item.alt}
+      width="688"
+      height="387"
       loading="lazy"
+      decoding="async"
     />
   </a>
   <article>

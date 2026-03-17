@@ -5,7 +5,7 @@ publishedAt: 2026-03-15
 updatedAt: 2026-03-16
 image: "https://res.cloudinary.com/ddjv5qfvw/image/upload/v1773596264/GRDV0019R-backdrop_wide_h2sfdm.jpg"
 alt: "Personagem de anime em cena de combate com energia azul ao fundo"
-description: "Lista com animes de ação para maratonar agora, reunindo séries com ritmo forte, lutas marcantes e boas portas de entrada para diferentes perfis."
+description: "Uma seleção de animes de ação para maratonar agora."
 tags:
   - animes
   - anime de ação

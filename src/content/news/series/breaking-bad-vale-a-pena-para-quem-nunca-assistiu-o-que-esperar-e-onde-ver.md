@@ -5,7 +5,7 @@ publishedAt: 2026-03-16
 updatedAt: 2026-03-16
 image: "https://res.cloudinary.com/ddjv5qfvw/image/upload/v1773707637/latest_th6jlz.webp"
 alt: "Walter White e Jesse Pinkman em arte promocional de Breaking Bad"
-description: "Breaking Bad ainda vale a pena para quem nunca assistiu. Veja onde ver no Brasil, quantas temporadas são e o que esperar da série."
+description: "Veja onde assistir, quantas temporadas são e o que esperar da série."
 tags:
   - breaking bad
   - netflix
@@ -22,7 +22,10 @@ A resposta curta é **sim, e muito**. A série envelheceu excepcionalmente bem p
 
 Se você quer saber onde assistir no Brasil, quantas temporadas são e que tipo de experiência esperar antes de começar, aqui vão os pontos que realmente importam.
 
-![Walter White e Jesse Pinkman em arte promocional de Breaking Bad](https://res.cloudinary.com/ddjv5qfvw/image/upload/v1773707637/latest_th6jlz.webp)
+<figure>
+<img src="https://res.cloudinary.com/ddjv5qfvw/image/upload/v1773743264/180119-breakingbad-cast_ld3uf2.jpg" alt="Elenco principal de Breaking Bad em imagem promocional" loading="lazy" />
+<figcaption>Imagem promocional reúne parte do elenco principal de Breaking Bad.</figcaption>
+</figure>
 
 *Onde assistir* consultado no Brasil em **16 de março de 2026**. Catálogos mudam; confirme a disponibilidade atual.
 

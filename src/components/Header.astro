@@ -10,7 +10,14 @@ const pathname = Astro.url.pathname.replace(/\/+$/, "") || "/";
   <div class="site-container">
     <div class="relative flex items-center justify-between gap-6 whitespace-nowrap max-md:gap-2">
       <a href={baseUrl} aria-label="Zexy" class="inline-flex items-center gap-2.5">
-        <img src={`${baseUrl}img/zexy.svg`} alt="Zexy" class="h-10 w-auto max-md:h-8" />
+        <img
+          src={`${baseUrl}img/zexy.svg`}
+          alt="Zexy"
+          width="128"
+          height="40"
+          decoding="async"
+          class="h-10 w-auto max-md:h-8"
+        />
       </a>
 
       <button

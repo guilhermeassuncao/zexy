@@ -5,7 +5,7 @@ publishedAt: 2026-03-16
 updatedAt: 2026-03-16
 image: "https://res.cloudinary.com/ddjv5qfvw/image/upload/v1773704269/image_5_kzlxik.png"
 alt: "Visual da segunda temporada de Frieren com o grupo em clima de confronto"
-description: "A 2ª temporada de Frieren: Beyond Journey's End já está em exibição e entrou em fase mais intensa. Veja onde assistir no Brasil, o que mudou no arco atual e se vale começar agora."
+description: "Veja onde assistir e o que esperar do arco atual da 2ª temporada."
 tags:
   - frieren
   - sousou no frieren

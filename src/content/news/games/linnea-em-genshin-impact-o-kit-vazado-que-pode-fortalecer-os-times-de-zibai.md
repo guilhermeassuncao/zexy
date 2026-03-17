@@ -5,7 +5,7 @@ publishedAt: 2026-03-16
 updatedAt: 2026-03-16
 image: "https://res.cloudinary.com/ddjv5qfvw/image/upload/v1773680797/69a00794759fef3f5de20c80vsMGkTaZ03_au2cnv.webp"
 alt: "Linnea em Genshin Impact com visual ligado a Nod-Krai e temas lunares"
-description: "Linnea ganhou destaque em Genshin Impact com vazamentos que apontam forte sinergia com Zibai, Columbina e Illuga na fase de Nod-Krai."
+description: "Veja o que vazamentos apontam sobre a sinergia de Linnea com Zibai."
 tags:
   - genshin impact
   - linnea

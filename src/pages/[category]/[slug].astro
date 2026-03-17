@@ -4,6 +4,7 @@ import Footer from "../../components/Footer.astro";
 import Header from "../../components/Header.astro";
 import Icon from "../../components/Icon.astro";
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import { optimizeCloudinaryImage } from "../../utils/images";
 
 type EntryProps =
   | { kind: "offer"; entry: CollectionEntry<"offers"> }
@@ -44,13 +45,8 @@ const categoryLabelMap = {
   animes: "animes",
   series: "series & filmes"
 } as const;
-const postDateFormatter = new Intl.DateTimeFormat("pt-BR", {
-  day: "2-digit",
-  month: "2-digit",
-  year: "numeric"
-});
-
 const pageTitle = `${entry.data.title} | Zexy`;
+const heroImage = optimizeCloudinaryImage(entry.data.image, { width: 1600 });
 const headingCaseClass = kind === "news" ? "" : "lowercase";
 const pageDescriptionSource =
   entry.body
@@ -64,6 +60,7 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site ?? "https://zexy.com
 const publishedTime = entry.data.publishedAt.toISOString();
 const modifiedTime = (entry.data.updatedAt ?? entry.data.publishedAt).toISOString();
 const author = kind === "news" ? (entry.data.author ?? "Equipe Zexy") : "Equipe Zexy";
+const enablePostCarousel = entry.body.includes("data-post-carousel");
 const breadcrumbs = [
   {
     "@type": "ListItem",
@@ -129,23 +126,33 @@ const articleStructuredData =
 <BaseLayout
   title={pageTitle}
   description={pageDescription}
-  image={entry.data.image}
+  image={heroImage}
   type={kind === "news" ? "article" : "website"}
   author={author}
   publishedTime={kind === "news" ? publishedTime : undefined}
   modifiedTime={kind === "news" ? modifiedTime : undefined}
   structuredData={articleStructuredData}
+  enablePostCarousel={enablePostCarousel}
 >
   <Header />
 
   <main class="site-container py-8 max-md:py-4">
     <article class="overflow-hidden rounded-[1rem] border border-gray-light bg-panel-gradient shadow-panel">
       <div class="relative isolate overflow-hidden">
-        <img src={entry.data.image} alt={entry.data.alt ?? entry.data.title} class="aspect-[16/7] w-full object-cover max-md:aspect-[4/3]" />
+        <img
+          src={heroImage}
+          alt={entry.data.alt ?? entry.data.title}
+          width="1600"
+          height="700"
+          loading="eager"
+          decoding="async"
+          fetchpriority="high"
+          class="aspect-[16/7] w-full object-cover max-md:aspect-[4/3]"
+        />
         <div class="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.08),transparent_34%),linear-gradient(180deg,rgba(19,18,26,0.08)_0%,rgba(19,18,26,0.34)_42%,rgba(19,18,26,0.94)_100%)]"></div>
         <div class="absolute inset-x-0 bottom-0 p-7 max-md:p-5">
           <div class="flex items-end gap-5 max-md:gap-4">
-            <div class:list={["w-1.5 self-stretch rounded-full max-md:w-1", accentBarMap[entry.data.category]]}></div>
+            <div class:list={["w-1.5 self-stretch rounded-full", accentBarMap[entry.data.category]]}></div>
 
             <div>
               <div class:list={["mb-4 inline-flex items-center gap-2 rounded-full border px-3 py-1 text-xs font-extrabold uppercase tracking-[0.14em] backdrop-blur-sm", accentMap[entry.data.category]]}>
@@ -153,7 +160,7 @@ const articleStructuredData =
                 {categoryLabelMap[entry.data.category]}
               </div>
 
-              <h1 class:list={["max-w-3xl text-balance font-orbitron text-[2.3rem] font-extrabold leading-[0.98] text-white drop-shadow-[0_6px_24px_rgba(0,0,0,0.65)] max-md:max-w-full max-md:text-[1.7rem]", headingCaseClass]}>
+              <h1 class:list={["max-w-3xl text-balance font-orbitron text-[2.3rem] font-extrabold leading-[0.98] text-white drop-shadow-[0_6px_24px_rgba(0,0,0,0.65)] max-md:max-w-full max-md:text-[1.35rem] max-md:leading-[1.02]", headingCaseClass]}>
                 {entry.data.title}
               </h1>
 
@@ -167,25 +174,12 @@ const articleStructuredData =
                     <span class="text-[1.75rem] font-extrabold text-price-green drop-shadow-[0_4px_14px_rgba(0,0,0,0.45)]">{entry.data.price}</span>
                     <span class="text-sm text-lilac drop-shadow-[0_4px_14px_rgba(0,0,0,0.45)]">{entry.data.store}</span>
                   </div>
-                ) : (
-                  <div class="mt-4 flex flex-wrap items-center gap-3">
-                    <p class="inline-flex rounded-full border border-white/10 bg-black/20 px-3 py-1 text-sm font-semibold tracking-[0.04em] text-lilac shadow-[0_8px_24px_rgba(0,0,0,0.28)] backdrop-blur-sm">
-                      Publicado em {postDateFormatter.format(entry.data.publishedAt)}
-                    </p>
-                    {
-                      entry.data.updatedAt && (
-                        <p class="inline-flex rounded-full border border-white/10 bg-black/20 px-3 py-1 text-sm font-semibold tracking-[0.04em] text-lilac shadow-[0_8px_24px_rgba(0,0,0,0.28)] backdrop-blur-sm">
-                          Atualizado em {postDateFormatter.format(entry.data.updatedAt)}
-                        </p>
-                      )
-                    }
-                  </div>
-                )
+                ) : null
               }
 
               {
                 kind === "news" && (
-                  <p class="mt-4 max-w-3xl text-sm leading-6 text-white/80">
+                  <p class="mt-3 max-w-3xl text-sm leading-6 text-white/80 max-md:text-[0.82rem] max-md:leading-6">
                     {pageDescription}
                   </p>
                 )
@@ -193,7 +187,7 @@ const articleStructuredData =
 
               {
                 kind === "news" && (
-                  <p class="mt-3 text-sm font-semibold text-lilac">
+                  <p class="mt-2 text-sm font-semibold text-lilac max-md:hidden">
                     Por {author}
                   </p>
                 )
