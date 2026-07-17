@@ -1,0 +1,36 @@
+---
+import ZxLayout from "../layouts/ZxLayout.astro";
+import ComparisonSection from "../components/zx/ComparisonSection.astro";
+import GuidesSection from "../components/zx/GuidesSection.astro";
+import { getGuides } from "../data/catalog";
+
+const guides = await getGuides();
+const comparisonGuides = guides.filter((guide) =>
+  ["Comparativo", "PlayStation", "Xbox", "Nintendo"].includes(guide.tag)
+);
+---
+
+<ZxLayout
+  title="Comparar consoles — PS5, Switch, Xbox e mais | Zexy"
+  description="Compare PlayStation 5, PS5 Pro, Xbox Series X e Series S: potência, mídia física, armazenamento, assinaturas e faixa de preço lado a lado."
+>
+  <section class="relative overflow-hidden pt-36 pb-4">
+    <div
+      aria-hidden="true"
+      class="pointer-events-none absolute inset-0 bg-[radial-gradient(55rem_30rem_at_30%_-10%,rgba(77,159,255,0.12),transparent_60%),radial-gradient(55rem_30rem_at_70%_-10%,rgba(63,220,129,0.11),transparent_60%)]"
+    >
+    </div>
+    <div class="zx-container relative text-center">
+      <p data-hero-item class="zx-eyebrow">Comparador Zexy</p>
+      <h1 data-hero-item class="zx-title mt-4 text-4xl sm:text-5xl md:text-6xl">Compare antes de escolher</h1>
+      <p data-hero-item class="mx-auto mt-5 max-w-xl text-base leading-7 text-zx-muted sm:text-lg">
+        PS5, PS5 Pro, Nintendo Switch e Xbox Series lado a lado para você decidir com dados, não com achismo.
+      </p>
+    </div>
+  </section>
+
+  <ComparisonSection />
+
+  <GuidesSection guides={comparisonGuides} />
+
+</ZxLayout>

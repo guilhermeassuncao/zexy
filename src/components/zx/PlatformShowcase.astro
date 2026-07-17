@@ -1,0 +1,44 @@
+---
+import type { CategoryItem, Platform } from "../../data/catalog";
+import CategoryCard from "./CategoryCard.astro";
+import SectionHeading from "./SectionHeading.astro";
+
+interface Props {
+  platform: Platform;
+  eyebrow: string;
+  title: string;
+  description: string;
+  categories: CategoryItem[];
+  ctaHref: string;
+  ctaLabel: string;
+}
+
+const { platform, eyebrow, title, description, categories, ctaHref, ctaLabel } = Astro.props;
+const glowByPlatform: Record<Platform, string> = {
+  playstation: "bg-[radial-gradient(45rem_28rem_at_10%_0%,rgba(77,159,255,0.1),transparent_60%)]",
+  nintendo: "bg-[radial-gradient(45rem_28rem_at_50%_0%,rgba(255,90,95,0.09),transparent_60%)]",
+  xbox: "bg-[radial-gradient(45rem_28rem_at_90%_0%,rgba(63,220,129,0.09),transparent_60%)]"
+};
+const ctaByPlatform: Record<Platform, string> = {
+  playstation: "zx-btn-ps",
+  nintendo: "zx-btn-nt",
+  xbox: "zx-btn-xb"
+};
+const glow = glowByPlatform[platform];
+const ctaClass = ctaByPlatform[platform];
+---
+
+<section class="relative overflow-hidden py-20 md:py-28" aria-label={title}>
+  <div aria-hidden="true" class:list={["pointer-events-none absolute inset-0", glow]}></div>
+
+  <div class="zx-container relative">
+    <div class="flex flex-wrap items-end justify-between gap-6">
+      <SectionHeading eyebrow={eyebrow} title={title} description={description} />
+      <a href={ctaHref} class={ctaClass} data-reveal>{ctaLabel}</a>
+    </div>
+
+    <div data-reveal-group class="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      {categories.map((category) => <CategoryCard category={category} platform={platform} />)}
+    </div>
+  </div>
+</section>

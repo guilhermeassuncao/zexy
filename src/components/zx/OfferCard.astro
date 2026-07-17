@@ -1,0 +1,75 @@
+---
+import type { Offer } from "../../data/catalog";
+import { formatPrice, formatUpdatedAt, platformLabels, storeLabels } from "../../data/catalog";
+
+interface Props {
+  offer: Offer;
+}
+
+const { offer } = Astro.props;
+const chipClass = offer.platform === "playstation" ? "zx-chip-ps" : "zx-chip-xb";
+// Apelidos comuns para a busca casar termos abreviados (ex.: "ps5", "xbox").
+const platformAliases = offer.platform === "playstation" ? "playstation ps5 ps" : "xbox series";
+const searchText = `${offer.name} ${offer.category} ${platformLabels[offer.platform]} ${storeLabels[offer.store]} ${platformAliases}`.toLowerCase();
+---
+
+<article
+  class="zx-card zx-card-hover group flex h-full flex-col overflow-hidden"
+  data-offer-card
+  data-offer-text={searchText}
+  data-platform={offer.platform}
+  data-category={offer.category}
+>
+  <div class="relative aspect-[4/3] overflow-hidden bg-zx-raised">
+    <img
+      src={offer.image}
+      alt={offer.imageAlt}
+      width="800"
+      height="600"
+      loading="lazy"
+      decoding="async"
+      class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
+    />
+    {
+      offer.discountPercentage && (
+        <span class="absolute left-3 top-3 rounded-full bg-zx-accent px-3 py-1 text-xs font-bold text-[#0b0716]">
+          -{offer.discountPercentage}%
+        </span>
+      )
+    }
+    {
+      offer.featured && (
+        <span class="absolute right-3 top-3 rounded-full border border-white/20 bg-black/50 px-3 py-1 text-[0.6875rem] font-semibold uppercase tracking-[0.12em] text-zx-ink backdrop-blur">
+          Oferta do dia
+        </span>
+      )
+    }
+  </div>
+
+  <div class="flex flex-1 flex-col gap-3 p-5">
+    <div class="flex items-center justify-between gap-2">
+      <span class={chipClass}>{platformLabels[offer.platform]}</span>
+      <span class="text-xs text-zx-muted">{storeLabels[offer.store]}</span>
+    </div>
+
+    <h3 class="text-base font-semibold leading-snug text-zx-ink">{offer.name}</h3>
+
+    <div class="mt-auto">
+      {
+        offer.originalPrice && (
+          <p class="text-sm text-zx-muted line-through">{formatPrice(offer.originalPrice)}</p>
+        )
+      }
+      <p class="text-2xl font-bold tracking-tight text-zx-ink">{formatPrice(offer.currentPrice)}</p>
+    </div>
+
+    <a href={offer.href} class="zx-btn-ghost w-full text-sm">
+      Ver oferta
+      <span class="sr-only">: {offer.name}</span>
+    </a>
+
+    <p class="text-[0.6875rem] text-zx-muted">
+      Atualizado em <time datetime={offer.updatedAt.toISOString()}>{formatUpdatedAt(offer.updatedAt)}</time>
+    </p>
+  </div>
+</article>

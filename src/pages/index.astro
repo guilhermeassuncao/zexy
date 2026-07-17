@@ -1,28 +1,191 @@
 ---
-import Footer from "../components/Footer.astro";
-import Header from "../components/Header.astro";
-import FeaturedSection from "../components/FeaturedSection.astro";
-import NewsSection from "../components/NewsSection.astro";
-// import OffersSection from "../components/OffersSection.astro";
-import { getFeaturedListing, getNewsListing } from "../data/content";
-import BaseLayout from "../layouts/BaseLayout.astro";
+import ZxLayout from "../layouts/ZxLayout.astro";
+import Hero from "../components/zx/Hero.astro";
+import SplitShowcase from "../components/zx/SplitShowcase.astro";
+import OfferGrid from "../components/zx/OfferGrid.astro";
+import SectionHeading from "../components/zx/SectionHeading.astro";
+import ComparisonSection from "../components/zx/ComparisonSection.astro";
+import PlatformShowcase from "../components/zx/PlatformShowcase.astro";
+import GuidesSection from "../components/zx/GuidesSection.astro";
+import { getGuides, getOffers, nintendoCategories, playstationCategories, xboxCategories } from "../data/catalog";
 
-const homeFeatured = await getFeaturedListing("home");
-const homeNews = await getNewsListing("home");
-// const homeOffers = await getOffersListing("home");
+// getOffers/getGuides já vêm ordenados dos .md mais recentes; a home mostra
+// só os primeiros de cada — adicionar um novo markdown o faz surgir no topo.
+const offers = (await getOffers()).slice(0, 6);
+const guides = (await getGuides()).slice(0, 6);
 ---
 
-<BaseLayout
-  title="Zexy - games, animes e séries em um só lugar"
-  description="Zexy reúne games, animes e séries em uma vitrine editorial com destaques e maratonas para descobrir o que vale seu tempo."
+<ZxLayout
+  title="Zexy — PlayStation, Xbox e as melhores ofertas em um só lugar"
+  description="Portal independente para comparar consoles, acessórios e ofertas de PlayStation e Xbox. Preços monitorados, comparativos e guias de compra."
 >
-  <Header />
+  <Hero />
 
-  <main class="site-main site-container">
-    <FeaturedSection items={homeFeatured.items} label={homeFeatured.title} />
-    <NewsSection title={homeNews.title} items={homeNews.items} ariaLabel={homeNews.title} />
-    {/* <OffersSection title={homeOffers.title} categories={homeOffers.categories} items={homeOffers.items} /> */}
-  </main>
+  <SplitShowcase
+    id="split-consoles"
+    eyebrow="Três ecossistemas"
+    title="De que lado você joga?"
+    description="Cada plataforma tem seu próprio universo. Role para colocar as três frente a frente."
+    sides={[
+      {
+        platform: "playstation",
+        heading: "O lado azul",
+        image: { src: "/img/consoles/ps5.png", alt: "Console PlayStation 5 com controle DualSense", width: 935, height: 1174 },
+        imageClass: "h-52 md:h-56",
+        items: ["Consoles", "DualSense", "Jogos", "SSDs", "Headsets"],
+        ctaLabel: "Ver PlayStation",
+        ctaHref: "/playstation"
+      },
+      {
+        platform: "nintendo",
+        heading: "O lado vermelho",
+        image: { src: "/img/consoles/switch.png", alt: "Console Nintendo Switch na dock com Joy-Cons", width: 897, height: 468 },
+        imageClass: "h-32 md:h-40",
+        items: ["Switch 2", "Switch OLED", "Joy-Con", "Jogos", "microSD"],
+        ctaLabel: "Ver Nintendo",
+        ctaHref: "/nintendo"
+      },
+      {
+        platform: "xbox",
+        heading: "O lado verde",
+        image: { src: "/img/consoles/xbox-series-x.png", alt: "Console Xbox Series X com controle", width: 425, height: 613 },
+        imageClass: "h-52 md:h-56",
+        items: ["Series X", "Series S", "Controles", "Game Pass", "Headsets"],
+        ctaLabel: "Ver Xbox",
+        ctaHref: "/xbox"
+      }
+    ]}
+  />
 
-  <Footer />
-</BaseLayout>
+  <SplitShowcase
+    id="split-controles"
+    eyebrow="Na palma da mão"
+    title="O controle é a extensão do jogo"
+    description="DualSense, Joy-Con e Controle Sem Fio Xbox — cada um com sua assinatura."
+    sides={[
+      {
+        platform: "playstation",
+        heading: "DualSense",
+        image: { src: "/img/consoles/dualsense.png", alt: "Controle sem fio DualSense", width: 968, height: 667 },
+        imageClass: "h-36 md:h-44",
+        items: ["Feedback háptico", "Gatilhos adaptáveis", "Touchpad", "Áudio 3D", "Microfone"],
+        ctaLabel: "Ver controles PlayStation",
+        ctaHref: "/ofertas"
+      },
+      {
+        platform: "nintendo",
+        heading: "Joy-Con 2",
+        image: { src: "/img/consoles/joycon.png", alt: "Par de Joy-Con 2 da Nintendo", width: 876, height: 863 },
+        imageClass: "h-36 md:h-44",
+        items: ["Destacáveis", "Modo mouse", "Encaixe magnético", "HD Rumble", "Multiplayer local"],
+        ctaLabel: "Ver controles Nintendo",
+        ctaHref: "/ofertas"
+      },
+      {
+        platform: "xbox",
+        heading: "Controle Xbox",
+        image: { src: "/img/consoles/xbox-controller.png", alt: "Controle sem fio Xbox", width: 351, height: 245 },
+        imageClass: "h-36 md:h-44",
+        items: ["Botão Compartilhar", "Empunhadura texturizada", "D-pad híbrido", "Design Lab", "Elite Series 2"],
+        ctaLabel: "Ver controles Xbox",
+        ctaHref: "/ofertas"
+      }
+    ]}
+  />
+
+  <section class="zx-container py-20 md:py-28" aria-labelledby="ofertas-titulo">
+    <div class="flex flex-wrap items-end justify-between gap-6">
+      <SectionHeading
+        id="ofertas-titulo"
+        eyebrow="Preços monitorados"
+        title="As melhores ofertas de hoje"
+        description="Seleção diária de consoles e acessórios com desconto real nas principais lojas."
+      />
+      <a href="/ofertas" class="zx-btn-ghost" data-reveal>Ver todas as ofertas</a>
+    </div>
+
+    <div class="mt-12">
+      <OfferGrid offers={offers} />
+    </div>
+  </section>
+
+  <ComparisonSection />
+
+  <PlatformShowcase
+    platform="playstation"
+    eyebrow="Ecossistema PlayStation"
+    title="Tudo para o seu PlayStation"
+    description="Do console ao SSD: cada categoria com preços acompanhados de perto."
+    categories={playstationCategories}
+    ctaHref="/playstation"
+    ctaLabel="Explorar PlayStation"
+  />
+
+  <PlatformShowcase
+    platform="nintendo"
+    eyebrow="Ecossistema Nintendo"
+    title="Tudo para o seu Nintendo"
+    description="Switch 2, OLED, Joy-Con e exclusivos com preços acompanhados de perto."
+    categories={nintendoCategories}
+    ctaHref="/nintendo"
+    ctaLabel="Explorar Nintendo"
+  />
+
+  <PlatformShowcase
+    platform="xbox"
+    eyebrow="Ecossistema Xbox"
+    title="Tudo para o seu Xbox"
+    description="Series X, Series S, Game Pass e acessórios pelo melhor valor do dia."
+    categories={xboxCategories}
+    ctaHref="/xbox"
+    ctaLabel="Explorar Xbox"
+  />
+
+  <SplitShowcase
+    id="split-jogos"
+    eyebrow="Ícones"
+    title="Os jogos que definem cada lado"
+    description="As marcas registradas de cada ecossistema — dos exclusivos de console aos clássicos da casa."
+    sides={[
+      {
+        platform: "playstation",
+        heading: "Ícones PlayStation",
+        covers: [
+          { src: "/img/games/gow-ragnarok.jpg", alt: "Capa de God of War Ragnarök" },
+          { src: "/img/games/spider-man-2.jpg", alt: "Capa de Marvel's Spider-Man 2" },
+          { src: "/img/games/horizon-fw.jpg", alt: "Capa de Horizon Forbidden West" }
+        ],
+        items: ["God of War Ragnarök", "Spider-Man 2", "Horizon"],
+        ctaLabel: "Ver PlayStation",
+        ctaHref: "/playstation"
+      },
+      {
+        platform: "nintendo",
+        heading: "Ícones Nintendo",
+        covers: [
+          { src: "/img/games/nt-mario.jpg", alt: "Capa de Super Mario Bros. Wonder" },
+          { src: "/img/games/nt-zelda.jpg", alt: "Capa de The Legend of Zelda: Tears of the Kingdom" },
+          { src: "/img/games/nt-metroid.jpg", alt: "Capa de Metroid Dread" }
+        ],
+        items: ["Mario Bros. Wonder", "Zelda: TOTK", "Metroid Dread"],
+        ctaLabel: "Ver Nintendo",
+        ctaHref: "/nintendo"
+      },
+      {
+        platform: "xbox",
+        heading: "Ícones Xbox",
+        covers: [
+          { src: "/img/games/halo-infinite.jpg", alt: "Capa de Halo Infinite" },
+          { src: "/img/games/forza-horizon-5.jpg", alt: "Capa de Forza Horizon 5" },
+          { src: "/img/games/starfield.jpg", alt: "Capa de Starfield" }
+        ],
+        items: ["Halo Infinite", "Forza Horizon 5", "Starfield"],
+        ctaLabel: "Ver Xbox",
+        ctaHref: "/xbox"
+      }
+    ]}
+  />
+
+  <GuidesSection guides={guides} />
+
+</ZxLayout>

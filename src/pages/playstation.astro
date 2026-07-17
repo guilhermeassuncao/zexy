@@ -1,0 +1,58 @@
+---
+import ZxLayout from "../layouts/ZxLayout.astro";
+import OfferGrid from "../components/zx/OfferGrid.astro";
+import PlatformShowcase from "../components/zx/PlatformShowcase.astro";
+import GuidesSection from "../components/zx/GuidesSection.astro";
+import { getGuides, getOffers, playstationCategories } from "../data/catalog";
+
+const offers = await getOffers();
+const guides = await getGuides();
+const psOffers = offers.filter((offer) => offer.platform === "playstation");
+const psGuides = guides.filter((guide) => guide.tag === "PlayStation" || guide.tag === "Comparativo");
+---
+
+<ZxLayout
+  title="PlayStation — consoles, acessórios e ofertas | Zexy"
+  description="PS5, DualSense, SSDs, headsets e jogos com preços monitorados. As melhores ofertas do ecossistema PlayStation em um só lugar."
+>
+  <section class="relative overflow-hidden pt-36 pb-16 md:pb-24">
+    <div
+      aria-hidden="true"
+      class="pointer-events-none absolute inset-0 bg-[radial-gradient(55rem_32rem_at_50%_-10%,rgba(77,159,255,0.18),transparent_65%)]"
+    >
+    </div>
+    <div class="zx-container relative text-center">
+      <p data-hero-item class="zx-eyebrow">Ecossistema PlayStation</p>
+      <h1 data-hero-item class="zx-title mt-4 text-4xl sm:text-5xl md:text-6xl">
+        Tudo para o seu <span class="text-zx-ps">PlayStation</span>
+      </h1>
+      <p data-hero-item class="mx-auto mt-5 max-w-xl text-base leading-7 text-zx-muted sm:text-lg">
+        Consoles, DualSense, jogos, SSDs e headsets com preço acompanhado de perto pela Zexy.
+      </p>
+      <div data-hero-item class="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
+        <a href="/ofertas" class="zx-btn-ps w-full sm:w-auto">Ver ofertas PlayStation</a>
+        <a href="/comparar" class="zx-btn-ghost w-full sm:w-auto">Comparar com Xbox</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="zx-container pb-4" aria-labelledby="ps-ofertas-titulo">
+    <h2 id="ps-ofertas-titulo" class="zx-title text-2xl sm:text-3xl" data-reveal>Ofertas PlayStation em destaque</h2>
+    <div class="mt-8">
+      <OfferGrid offers={psOffers} />
+    </div>
+  </section>
+
+  <PlatformShowcase
+    platform="playstation"
+    eyebrow="Categorias"
+    title="Explore por categoria"
+    description="Cada área do ecossistema PlayStation com as ofertas do dia."
+    categories={playstationCategories}
+    ctaHref="/ofertas"
+    ctaLabel="Ver todas as ofertas"
+  />
+
+  <GuidesSection guides={psGuides} />
+
+</ZxLayout>

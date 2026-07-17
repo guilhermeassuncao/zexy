@@ -1,0 +1,21 @@
+---
+import type { Guide } from "../../data/catalog";
+
+interface Props {
+  guide: Guide;
+}
+
+const { guide } = Astro.props;
+---
+
+<a href={guide.href} class="zx-card zx-card-hover flex h-full flex-col p-6">
+  <div class="flex items-center justify-between gap-3 text-xs text-zx-muted">
+    <span class="rounded-full border border-zx-line bg-white/[0.04] px-3 py-1 font-semibold uppercase tracking-[0.12em]">
+      {guide.tag}
+    </span>
+    <span>{guide.readingTime} de leitura</span>
+  </div>
+  <h3 class="zx-title mt-4 text-xl">{guide.title}</h3>
+  <p class="mt-3 text-sm leading-6 text-zx-muted">{guide.excerpt}</p>
+  <span class="mt-auto pt-5 text-sm font-semibold text-zx-accent-soft">Ler o guia →</span>
+</a>

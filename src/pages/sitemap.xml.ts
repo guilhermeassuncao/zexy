@@ -1,9 +1,10 @@
-import { getCollection } from "astro:content";
+import { getNoticias, getOffers } from "../data/catalog";
 
 const site = "https://zexy.com.br";
 
 function toUrl(pathname: string) {
-  return new URL(pathname, site).toString();
+  const normalized = pathname === "/" ? "/" : `${pathname.replace(/\/+$/, "")}/`;
+  return new URL(normalized, site).toString();
 }
 
 function formatDate(date: Date) {
@@ -11,21 +12,19 @@ function formatDate(date: Date) {
 }
 
 export async function GET() {
-  const [offers, news] = await Promise.all([getCollection("offers"), getCollection("news")]);
+  const [offers, noticias] = await Promise.all([getOffers(), getNoticias()]);
 
-  const staticPages = ["/", "/games", "/animes", "/series", "/ofertas"];
+  const staticPages = ["/", "/playstation", "/nintendo", "/xbox", "/comparar", "/ofertas", "/noticias"];
 
-  const urls = [
-    ...staticPages.map((pathname) => ({
-      loc: toUrl(pathname)
+  const urls: Array<{ loc: string; lastmod?: string }> = [
+    ...staticPages.map((pathname) => ({ loc: toUrl(pathname) })),
+    ...offers.map((offer) => ({
+      loc: toUrl(offer.href),
+      lastmod: formatDate(offer.updatedAt)
     })),
-    ...news.map((entry) => ({
-      loc: toUrl(`/${entry.data.category}/${entry.slug.split("/").at(-1) ?? entry.slug}`),
-      lastmod: formatDate(entry.data.updatedAt ?? entry.data.publishedAt)
-    })),
-    ...offers.map((entry) => ({
-      loc: toUrl(`/${entry.data.category}/${entry.slug}`),
-      lastmod: formatDate(entry.data.updatedAt ?? entry.data.publishedAt)
+    ...noticias.map((noticia) => ({
+      loc: toUrl(noticia.href),
+      lastmod: formatDate(noticia.publishedAt)
     }))
   ];
 

@@ -1,0 +1,57 @@
+---
+import ZxLayout from "../layouts/ZxLayout.astro";
+import OfferGrid from "../components/zx/OfferGrid.astro";
+import PlatformShowcase from "../components/zx/PlatformShowcase.astro";
+import GuidesSection from "../components/zx/GuidesSection.astro";
+import { getGuides, getOffers, nintendoCategories } from "../data/catalog";
+
+const offers = await getOffers();
+const guides = await getGuides();
+const ntOffers = offers.filter((offer) => offer.platform === "nintendo");
+const ntGuides = guides.filter((guide) => guide.tag === "Nintendo" || guide.tag === "Comparativo");
+---
+
+<ZxLayout
+  title="Nintendo — Switch 2, Switch OLED, Joy-Con e ofertas | Zexy"
+  description="Nintendo Switch 2, Switch OLED, Joy-Con, jogos e microSD com preços monitorados. As melhores ofertas do ecossistema Nintendo."
+>
+  <section class="relative overflow-hidden pt-36 pb-16 md:pb-24">
+    <div
+      aria-hidden="true"
+      class="pointer-events-none absolute inset-0 bg-[radial-gradient(55rem_32rem_at_50%_-10%,rgba(255,90,95,0.16),transparent_65%)]"
+    >
+    </div>
+    <div class="zx-container relative text-center">
+      <p data-hero-item class="zx-eyebrow">Ecossistema Nintendo</p>
+      <h1 data-hero-item class="zx-title mt-4 text-4xl sm:text-5xl md:text-6xl">
+        Tudo para o seu <span class="text-zx-nt">Nintendo</span>
+      </h1>
+      <p data-hero-item class="mx-auto mt-5 max-w-xl text-base leading-7 text-zx-muted sm:text-lg">
+        Switch 2, Switch OLED, Joy-Con, jogos e cartões microSD pelo melhor valor do dia.
+      </p>
+      <div data-hero-item class="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
+        <a href="/ofertas" class="zx-btn-nt w-full sm:w-auto">Ver ofertas Nintendo</a>
+        <a href="/comparar" class="zx-btn-ghost w-full sm:w-auto">Comparar consoles</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="zx-container pb-4" aria-labelledby="nt-ofertas-titulo">
+    <h2 id="nt-ofertas-titulo" class="zx-title text-2xl sm:text-3xl" data-reveal>Ofertas Nintendo em destaque</h2>
+    <div class="mt-8">
+      <OfferGrid offers={ntOffers} />
+    </div>
+  </section>
+
+  <PlatformShowcase
+    platform="nintendo"
+    eyebrow="Categorias"
+    title="Explore por categoria"
+    description="Cada área do ecossistema Nintendo com as ofertas do dia."
+    categories={nintendoCategories}
+    ctaHref="/ofertas"
+    ctaLabel="Ver todas as ofertas"
+  />
+
+  <GuidesSection guides={ntGuides} />
+</ZxLayout>

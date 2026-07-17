@@ -1,0 +1,24 @@
+---
+import type { Guide } from "../../data/catalog";
+import GuideCard from "./GuideCard.astro";
+import SectionHeading from "./SectionHeading.astro";
+
+interface Props {
+  guides: Guide[];
+}
+
+const { guides } = Astro.props;
+---
+
+<section class="zx-container py-20 md:py-28" aria-labelledby="guias-titulo">
+  <SectionHeading
+    id="guias-titulo"
+    eyebrow="Guias de compra"
+    title="Decida com calma, compre na hora certa"
+    description="Guias diretos para escolher console, acessório e o momento de comprar."
+  />
+
+  <div data-reveal-group class="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+    {guides.map((guide) => <GuideCard guide={guide} />)}
+  </div>
+</section>

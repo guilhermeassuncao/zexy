@@ -1,0 +1,60 @@
+---
+import ZxLayout from "../../layouts/ZxLayout.astro";
+import NewsCard from "../../components/zx/NewsCard.astro";
+import { getNoticias } from "../../data/catalog";
+
+const noticias = await getNoticias();
+const [lead, ...rest] = noticias;
+---
+
+<ZxLayout
+  title="Notícias de PlayStation e Xbox | Zexy"
+  description="As últimas notícias, listas e recomendações de jogos e consoles PlayStation e Xbox, atualizadas pela Zexy."
+>
+  <section class="relative overflow-hidden pt-36 pb-12">
+    <div
+      aria-hidden="true"
+      class="pointer-events-none absolute inset-0 bg-[radial-gradient(50rem_28rem_at_50%_-10%,rgba(139,116,255,0.14),transparent_65%)]"
+    >
+    </div>
+    <div class="zx-container relative text-center">
+      <p data-hero-item class="zx-eyebrow">Editorial</p>
+      <h1 data-hero-item class="zx-title mt-4 text-4xl sm:text-5xl md:text-6xl">Notícias</h1>
+      <p data-hero-item class="mx-auto mt-5 max-w-xl text-base leading-7 text-zx-muted sm:text-lg">
+        Listas, recomendações e o que está acontecendo no mundo de PlayStation e Xbox.
+      </p>
+    </div>
+  </section>
+
+  {
+    lead && (
+      <section class="zx-container" aria-label="Destaque">
+        <a href={lead.href} class="zx-card zx-card-hover group grid overflow-hidden md:grid-cols-2" data-reveal>
+          <div class="relative aspect-video overflow-hidden bg-zx-raised md:aspect-auto">
+            <img
+              src={lead.image}
+              alt={lead.alt}
+              width="1200"
+              height="675"
+              loading="eager"
+              decoding="async"
+              class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+            />
+          </div>
+          <div class="flex flex-col justify-center gap-4 p-7 md:p-10">
+            <span class="zx-eyebrow">Última notícia</span>
+            <h2 class="zx-title text-2xl sm:text-3xl">{lead.title}</h2>
+            <p class="text-base leading-7 text-zx-muted">{lead.description}</p>
+            <span class="text-sm font-semibold text-zx-accent-soft">Ler matéria →</span>
+          </div>
+        </a>
+      </section>
+    )
+  }
+
+  <section class="zx-container mt-12" aria-label="Todas as notícias">
+    <div data-reveal-group class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      {rest.map((noticia) => <NewsCard noticia={noticia} />)}
+    </div>
+  </section>
+</ZxLayout>

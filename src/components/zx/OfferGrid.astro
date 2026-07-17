@@ -1,0 +1,14 @@
+---
+import type { Offer } from "../../data/catalog";
+import OfferCard from "./OfferCard.astro";
+
+interface Props {
+  offers: Offer[];
+}
+
+const { offers } = Astro.props;
+---
+
+<div data-reveal-group class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+  {offers.map((offer) => <OfferCard offer={offer} />)}
+</div>

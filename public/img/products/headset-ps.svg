@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-label="Headset PULSE Elite (imagem ilustrativa)">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0d0f17"/>
+      <stop offset="1" stop-color="#06070c"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.42" r="0.6">
+      <stop offset="0" stop-color="#4d9fff" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#4d9fff" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg)"/>
+  <rect width="800" height="600" fill="url(#glow)"/>
+  <rect x="24" y="24" width="752" height="552" rx="28" fill="none" stroke="#4d9fff" stroke-opacity="0.22" stroke-dasharray="6 10"/>
+  <circle cx="400" cy="252" r="88" fill="none" stroke="#4d9fff" stroke-opacity="0.55" stroke-width="3"/>
+  <circle cx="400" cy="252" r="52" fill="#4d9fff" fill-opacity="0.16"/>
+  <text x="400" y="262" text-anchor="middle" font-family="system-ui, sans-serif" font-size="30" font-weight="700" fill="#4d9fff">ZX</text>
+  <text x="400" y="420" text-anchor="middle" font-family="system-ui, sans-serif" font-size="34" font-weight="700" fill="#f4f5fa">Headset PULSE Elite</text>
+  <text x="400" y="462" text-anchor="middle" font-family="system-ui, sans-serif" font-size="20" letter-spacing="4" fill="#9aa0b8">IMAGEM ILUSTRATIVA</text>
+</svg>

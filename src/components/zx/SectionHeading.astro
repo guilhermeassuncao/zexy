@@ -1,0 +1,17 @@
+---
+interface Props {
+  eyebrow?: string;
+  title: string;
+  description?: string;
+  align?: "left" | "center";
+  id?: string;
+}
+
+const { eyebrow, title, description, align = "left", id } = Astro.props;
+---
+
+<div class:list={["max-w-2xl", align === "center" && "mx-auto text-center"]} data-reveal>
+  {eyebrow && <p class="zx-eyebrow">{eyebrow}</p>}
+  <h2 id={id} class="zx-title mt-3 text-3xl sm:text-4xl">{title}</h2>
+  {description && <p class="mt-4 text-base leading-7 text-zx-muted">{description}</p>}
+</div>

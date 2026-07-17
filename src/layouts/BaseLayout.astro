@@ -12,11 +12,12 @@ interface Props {
   robots?: string;
   structuredData?: Record<string, unknown> | Array<Record<string, unknown>>;
   enablePostCarousel?: boolean;
+  bodyClass?: string;
 }
 
 const {
   title = "Zexy",
-  description = "Zexy reúne games, animes e séries em uma vitrine editorial com destaques e maratonas para descobrir o que vale seu tempo.",
+  description = "Portal independente para comparar consoles, acessórios e ofertas de PlayStation e Xbox em um só lugar.",
   image = `${import.meta.env.BASE_URL}og-image.png`,
   type = "website",
   author = "Guilherme Assunção e Letícia Dias",
@@ -24,7 +25,8 @@ const {
   modifiedTime,
   robots = "index, follow, max-image-preview:large",
   structuredData,
-  enablePostCarousel = false
+  enablePostCarousel = false,
+  bodyClass = "bg-site-gradient pt-[5.625rem] max-md:pt-0"
 } = Astro.props;
 const baseUrl = import.meta.env.BASE_URL;
 const site = Astro.site ?? new URL("https://zexy.com.br");
@@ -72,8 +74,9 @@ const structuredDataEntries = [
     <meta name="twitter:image" content={imageUrl} />
     <meta name="twitter:creator" content={author} />
     <script type="application/ld+json" set:html={JSON.stringify(structuredDataEntries)}></script>
+    <slot name="head" />
   </head>
-  <body class="bg-site-gradient pt-[5.625rem] max-md:pt-0">
+  <body class={bodyClass}>
     <slot />
 
     {

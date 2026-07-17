@@ -1,0 +1,45 @@
+---
+import Logo from "./Logo.astro";
+
+const links = [
+  { label: "PlayStation", href: "/playstation" },
+  { label: "Nintendo", href: "/nintendo" },
+  { label: "Xbox", href: "/xbox" },
+  { label: "Ofertas", href: "/ofertas" },
+  { label: "Comparar", href: "/comparar" },
+  { label: "Notícias", href: "/noticias" }
+];
+
+const year = new Date().getFullYear();
+---
+
+<footer class="mt-24 border-t border-zx-line">
+  <div class="zx-container flex flex-col items-center gap-8 py-12 text-center">
+    <a href="/" aria-label="Zexy — início">
+      <Logo class="h-9" />
+    </a>
+
+    <nav aria-label="Rodapé">
+      <ul class="flex flex-wrap items-center justify-center gap-x-7 gap-y-3">
+        {
+          links.map((link) => (
+            <li>
+              <a href={link.href} class="text-sm text-zx-muted hover:text-zx-ink">
+                {link.label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+
+    <div class="max-w-2xl space-y-2 text-xs leading-5 text-zx-muted">
+      <p>
+        A Zexy é um portal independente de comparação de preços. Alguns links podem gerar comissão para o site, sem
+        custo adicional para o usuário. PlayStation, Xbox, Nintendo, Sony e Microsoft são marcas de seus
+        respectivos proprietários.
+      </p>
+      <p>© {year} Zexy</p>
+    </div>
+  </div>
+</footer>

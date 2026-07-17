@@ -1,0 +1,57 @@
+---
+// Hero principal: três ecossistemas (PlayStation, Nintendo, Xbox) convergindo
+// no wordmark Zexy. No mobile os blocos ficam empilhados.
+---
+
+<section class="relative flex min-h-[100svh] flex-col justify-center overflow-hidden pt-24 pb-16">
+  <div
+    aria-hidden="true"
+    class="pointer-events-none absolute inset-0 bg-[radial-gradient(40rem_45rem_at_12%_45%,rgba(77,159,255,0.1),transparent_60%),radial-gradient(38rem_48rem_at_50%_60%,rgba(255,90,95,0.06),transparent_58%),radial-gradient(40rem_45rem_at_88%_45%,rgba(63,220,129,0.09),transparent_60%)]"
+  >
+  </div>
+
+  <div class="zx-container relative text-center">
+    <p data-hero-item class="zx-eyebrow">Portal independente de ofertas</p>
+
+    <p data-hero-item class="mt-6 font-logo text-[clamp(3.5rem,10vw,7.5rem)] font-extrabold leading-none tracking-tight text-zx-ink">
+      ZEXY
+    </p>
+
+    <h1 data-hero-item class="zx-title mx-auto mt-4 max-w-3xl text-[clamp(1.75rem,4.5vw,3.25rem)]">
+      Escolha seu lado. <span class="bg-gradient-to-r from-zx-ps via-zx-nt to-zx-xb bg-clip-text text-transparent">Encontre o melhor preço.</span>
+    </h1>
+
+    <p data-hero-item class="mx-auto mt-6 max-w-xl text-base leading-7 text-zx-muted sm:text-lg">
+      Compare consoles, acessórios e ofertas de PlayStation, Nintendo e Xbox em um só lugar.
+    </p>
+
+    <div data-hero-item class="mt-14 grid gap-4 text-left md:grid-cols-3">
+      <a href="/playstation" class="zx-card zx-card-hover group relative overflow-hidden p-6 md:p-8">
+        <div aria-hidden="true" class="absolute inset-0 bg-gradient-to-br from-zx-ps/15 to-transparent opacity-70 transition-opacity duration-300 group-hover:opacity-100"></div>
+        <div class="relative">
+          <span class="zx-chip-ps">PlayStation</span>
+          <p class="zx-title mt-4 text-2xl">O universo do DualSense</p>
+          <p class="mt-2 text-sm leading-6 text-zx-muted">Consoles, exclusivos e acessórios com preço monitorado.</p>
+        </div>
+      </a>
+
+      <a href="/nintendo" class="zx-card zx-card-hover group relative overflow-hidden p-6 md:p-8">
+        <div aria-hidden="true" class="absolute inset-0 bg-gradient-to-b from-zx-nt/15 to-transparent opacity-70 transition-opacity duration-300 group-hover:opacity-100"></div>
+        <div class="relative">
+          <span class="zx-chip-nt">Nintendo</span>
+          <p class="zx-title mt-4 text-2xl">O híbrido que vai com você</p>
+          <p class="mt-2 text-sm leading-6 text-zx-muted">Switch 2, OLED e exclusivos para jogar em qualquer lugar.</p>
+        </div>
+      </a>
+
+      <a href="/xbox" class="zx-card zx-card-hover group relative overflow-hidden p-6 md:p-8">
+        <div aria-hidden="true" class="absolute inset-0 bg-gradient-to-bl from-zx-xb/15 to-transparent opacity-70 transition-opacity duration-300 group-hover:opacity-100"></div>
+        <div class="relative">
+          <span class="zx-chip-xb">Xbox</span>
+          <p class="zx-title mt-4 text-2xl">A casa do Game Pass</p>
+          <p class="mt-2 text-sm leading-6 text-zx-muted">Series X, Series S e assinaturas pelo menor valor.</p>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>

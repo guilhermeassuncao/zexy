@@ -1,6 +1,156 @@
 ---
-import ChannelPage from "../components/ChannelPage.astro";
-import { pageContent } from "../data/pages";
+import ZxLayout from "../layouts/ZxLayout.astro";
+import OfferCard from "../components/zx/OfferCard.astro";
+import { getOffers } from "../data/catalog";
+
+const offers = await getOffers();
+
+// Categorias distintas para os filtros, na ordem em que aparecem.
+const categories = Array.from(new Set(offers.map((offer) => offer.category)));
+
+const platformFilters = [
+  { value: "all", label: "Tudo" },
+  { value: "playstation", label: "PlayStation" },
+  { value: "nintendo", label: "Nintendo" },
+  { value: "xbox", label: "Xbox" }
+];
 ---
 
-<ChannelPage page={pageContent.ofertas} />
+<ZxLayout
+  title="Ofertas de PlayStation e Xbox hoje | Zexy"
+  description="As melhores ofertas do dia em consoles, controles, SSDs e headsets para PlayStation e Xbox, com preços monitorados pela Zexy."
+>
+  <section class="relative overflow-hidden pt-36 pb-12">
+    <div
+      aria-hidden="true"
+      class="pointer-events-none absolute inset-0 bg-[radial-gradient(50rem_28rem_at_50%_-10%,rgba(139,116,255,0.14),transparent_65%)]"
+    >
+    </div>
+    <div class="zx-container relative text-center">
+      <p data-hero-item class="zx-eyebrow">Preços monitorados</p>
+      <h1 data-hero-item class="zx-title mt-4 text-4xl sm:text-5xl md:text-6xl">As melhores ofertas de hoje</h1>
+      <p data-hero-item class="mx-auto mt-5 max-w-xl text-base leading-7 text-zx-muted sm:text-lg">
+        Filtre por plataforma e categoria para achar rápido o que você procura.
+      </p>
+    </div>
+  </section>
+
+  <div class="zx-container" data-offer-filters>
+    <div class="flex flex-col gap-4 rounded-2xl border border-zx-line bg-zx-surface p-4 sm:p-5">
+      <div>
+        <p class="mb-2 text-xs font-semibold uppercase tracking-[0.16em] text-zx-muted">Plataforma</p>
+        <div class="flex flex-wrap gap-2" role="group" aria-label="Filtrar por plataforma">
+          {
+            platformFilters.map((f, i) => (
+              <button
+                type="button"
+                data-filter-platform={f.value}
+                aria-pressed={i === 0 ? "true" : "false"}
+                class="zx-filter-chip"
+              >
+                {f.label}
+              </button>
+            ))
+          }
+        </div>
+      </div>
+
+      <div>
+        <p class="mb-2 text-xs font-semibold uppercase tracking-[0.16em] text-zx-muted">Categoria</p>
+        <div class="flex flex-wrap gap-2" role="group" aria-label="Filtrar por categoria">
+          <button type="button" data-filter-category="all" aria-pressed="true" class="zx-filter-chip">Todas</button>
+          {
+            categories.map((cat) => (
+              <button type="button" data-filter-category={cat} aria-pressed="false" class="zx-filter-chip">
+                {cat}
+              </button>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section class="zx-container mt-8" aria-label="Lista de ofertas">
+    <p data-offer-summary class="mb-6 text-sm text-zx-muted"></p>
+    <div data-offer-grid class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      {offers.map((offer) => <OfferCard offer={offer} />)}
+    </div>
+    <p data-no-results hidden class="mt-10 text-center text-zx-muted">
+      Nenhuma oferta encontrada com esses filtros.
+      <button type="button" data-clear-filters class="font-semibold text-zx-accent-soft underline underline-offset-4">
+        Limpar filtros
+      </button>
+    </p>
+  </section>
+
+  <script>
+    const normalize = (value: string) =>
+      value.trim().toLowerCase().normalize("NFD").replace(/\p{Diacritic}/gu, "");
+
+    const grid = document.querySelector<HTMLElement>("[data-offer-grid]");
+    const cards = Array.from(document.querySelectorAll<HTMLElement>("[data-offer-card]"));
+    const summary = document.querySelector<HTMLElement>("[data-offer-summary]");
+    const noResults = document.querySelector<HTMLElement>("[data-no-results]");
+    const platformButtons = Array.from(document.querySelectorAll<HTMLButtonElement>("[data-filter-platform]"));
+    const categoryButtons = Array.from(document.querySelectorAll<HTMLButtonElement>("[data-filter-category]"));
+
+    const params = new URLSearchParams(window.location.search);
+    const state = {
+      platform: params.get("platform") ?? "all",
+      category: params.get("category") ?? "all",
+      query: normalize(params.get("q") ?? "")
+    };
+
+    const syncButtons = (buttons: HTMLButtonElement[], attr: string, active: string) => {
+      buttons.forEach((btn) => btn.setAttribute("aria-pressed", String(btn.dataset[attr] === active)));
+    };
+
+    const apply = () => {
+      let visible = 0;
+      cards.forEach((card) => {
+        const okPlatform = state.platform === "all" || card.dataset.platform === state.platform;
+        const okCategory = state.category === "all" || card.dataset.category === state.category;
+        const okQuery = !state.query || normalize(card.dataset.offerText ?? "").includes(state.query);
+        const show = okPlatform && okCategory && okQuery;
+        card.hidden = !show;
+        if (show) visible++;
+      });
+
+      if (summary) {
+        const parts: string[] = [`${visible} oferta(s)`];
+        if (state.query) parts.push(`para "${params.get("q")}"`);
+        summary.textContent = parts.join(" ");
+      }
+      if (noResults) noResults.hidden = visible > 0;
+    };
+
+    platformButtons.forEach((btn) =>
+      btn.addEventListener("click", () => {
+        state.platform = btn.dataset.filterPlatform ?? "all";
+        syncButtons(platformButtons, "filterPlatform", state.platform);
+        apply();
+      })
+    );
+    categoryButtons.forEach((btn) =>
+      btn.addEventListener("click", () => {
+        state.category = btn.dataset.filterCategory ?? "all";
+        syncButtons(categoryButtons, "filterCategory", state.category);
+        apply();
+      })
+    );
+    document.querySelector<HTMLButtonElement>("[data-clear-filters]")?.addEventListener("click", () => {
+      state.platform = "all";
+      state.category = "all";
+      state.query = "";
+      syncButtons(platformButtons, "filterPlatform", "all");
+      syncButtons(categoryButtons, "filterCategory", "all");
+      apply();
+    });
+
+    // Estado inicial vindo da URL (ex.: busca do header, ou ?platform=xbox).
+    syncButtons(platformButtons, "filterPlatform", state.platform);
+    syncButtons(categoryButtons, "filterCategory", state.category);
+    apply();
+  </script>
+</ZxLayout>

@@ -1,0 +1,121 @@
+---
+import { getCollection, render } from "astro:content";
+import ZxLayout from "../../../layouts/ZxLayout.astro";
+import { formatPrice, formatUpdatedAt, platformLabels, slugify, storeLabels } from "../../../data/catalog";
+
+export async function getStaticPaths() {
+  const entries = await getCollection("offers");
+  return entries.map((entry) => ({
+    params: { categoria: slugify(entry.data.category), slug: entry.slug },
+    props: { entry }
+  }));
+}
+
+const { entry } = Astro.props;
+const offer = entry.data;
+const { Content } = await render(entry);
+const hasBody = (entry.body ?? "").trim().length > 0;
+
+const chipClass = offer.platform === "playstation" ? "zx-chip-ps" : "zx-chip-xb";
+const site = Astro.site ?? new URL("https://zexy.com.br");
+const canonicalUrl = new URL(Astro.url.pathname, site).toString();
+
+const structuredData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    name: offer.name,
+    image: [new URL(offer.image, site).toString()],
+    category: offer.category,
+    offers: {
+      "@type": "Offer",
+      priceCurrency: "BRL",
+      price: offer.currentPrice,
+      availability: "https://schema.org/InStock",
+      url: canonicalUrl
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Zexy", item: site.toString() },
+      { "@type": "ListItem", position: 2, name: "Ofertas", item: new URL("/ofertas/", site).toString() },
+      { "@type": "ListItem", position: 3, name: offer.name, item: canonicalUrl }
+    ]
+  }
+];
+---
+
+<ZxLayout
+  title={`${offer.name} — oferta | Zexy`}
+  description={`${offer.name} por ${formatPrice(offer.currentPrice)} na ${storeLabels[offer.store]}. Preço monitorado pela Zexy.`}
+  structuredData={structuredData}
+>
+  <article class="zx-container pt-28 pb-16 max-md:pt-24">
+    <nav aria-label="Você está aqui" class="mb-6 text-sm text-zx-muted">
+      <a href="/ofertas" class="hover:text-zx-ink">Ofertas</a>
+      <span aria-hidden="true"> / </span>
+      <span class="text-zx-ink">{offer.category}</span>
+    </nav>
+
+    <div class="grid gap-10 md:grid-cols-2">
+      <div class="zx-card overflow-hidden">
+        <img
+          src={offer.image}
+          alt={offer.imageAlt}
+          width="800"
+          height="600"
+          loading="eager"
+          decoding="async"
+          class="aspect-[4/3] w-full object-cover"
+        />
+      </div>
+
+      <div class="flex flex-col">
+        <div class="flex items-center gap-3">
+          <span class={chipClass}>{platformLabels[offer.platform]}</span>
+          <span class="text-xs uppercase tracking-[0.14em] text-zx-muted">{offer.category}</span>
+        </div>
+
+        <h1 class="zx-title mt-4 text-3xl sm:text-4xl">{offer.name}</h1>
+
+        <div class="mt-6">
+          {offer.originalPrice && <p class="text-base text-zx-muted line-through">{formatPrice(offer.originalPrice)}</p>}
+          <div class="flex items-end gap-3">
+            <p class="text-4xl font-bold tracking-tight text-zx-ink">{formatPrice(offer.currentPrice)}</p>
+            {
+              offer.discountPercentage && (
+                <span class="mb-1 rounded-full bg-zx-accent px-3 py-1 text-sm font-bold text-[#0b0716]">
+                  -{offer.discountPercentage}%
+                </span>
+              )
+            }
+          </div>
+          <p class="mt-2 text-sm text-zx-muted">
+            Vendido por <span class="font-semibold text-zx-ink">{storeLabels[offer.store]}</span>
+          </p>
+        </div>
+
+        <a href={offer.affiliateUrl} class="zx-btn-primary mt-8 w-full sm:w-auto">Ir para a oferta</a>
+
+        <p class="mt-4 text-xs text-zx-muted">
+          Atualizado em <time datetime={offer.updatedAt.toISOString()}>{formatUpdatedAt(offer.updatedAt)}</time>.
+          A Zexy pode receber comissão por compras via este link, sem custo adicional para você.
+        </p>
+
+        {
+          hasBody && (
+            <div class="post-content mt-8 border-t border-zx-line pt-8">
+              <Content />
+            </div>
+          )
+        }
+      </div>
+    </div>
+
+    <p class="mt-12">
+      <a href="/ofertas" class="zx-btn-ghost">← Ver todas as ofertas</a>
+    </p>
+  </article>
+</ZxLayout>

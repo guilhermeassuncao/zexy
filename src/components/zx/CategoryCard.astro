@@ -1,0 +1,29 @@
+---
+import type { CategoryItem, Platform } from "../../data/catalog";
+
+interface Props {
+  category: CategoryItem;
+  platform: Platform;
+}
+
+const { category, platform } = Astro.props;
+const accentByPlatform: Record<Platform, string> = {
+  playstation: "hover:border-zx-ps/40",
+  nintendo: "hover:border-zx-nt/40",
+  xbox: "hover:border-zx-xb/40"
+};
+const dotByPlatform: Record<Platform, string> = {
+  playstation: "bg-zx-ps",
+  nintendo: "bg-zx-nt",
+  xbox: "bg-zx-xb"
+};
+const accent = accentByPlatform[platform];
+const dot = dotByPlatform[platform];
+---
+
+<a href={category.href} class:list={["zx-card zx-card-hover block p-6", accent]}>
+  <span aria-hidden="true" class:list={["block h-1.5 w-1.5 rounded-full", dot]}></span>
+  <h3 class="zx-title mt-4 text-lg">{category.label}</h3>
+  <p class="mt-2 text-sm leading-6 text-zx-muted">{category.description}</p>
+  <span class="mt-4 inline-block text-sm font-semibold text-zx-ink/80">Ver ofertas →</span>
+</a>

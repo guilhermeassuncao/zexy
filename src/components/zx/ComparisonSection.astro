@@ -1,0 +1,109 @@
+---
+import { consoleSpecs, platformLabels } from "../../data/catalog";
+import SectionHeading from "./SectionHeading.astro";
+
+const rows = [
+  { label: "Foco principal", key: "focus" },
+  { label: "Controle", key: "controller" },
+  { label: "Mídia física", key: "physicalMedia" },
+  { label: "Resolução", key: "resolution" },
+  { label: "Armazenamento", key: "storage" },
+  { label: "Assinatura", key: "subscription" },
+  { label: "Faixa de preço", key: "priceRange" },
+  { label: "Ideal para", key: "idealFor" }
+] as const;
+
+// Na própria página de comparação o hero já apresenta a seção:
+// título interno e CTA só aparecem quando usada em outras páginas.
+const standalone = (Astro.url.pathname.replace(/\/+$/, "") || "/") !== "/comparar";
+---
+
+<section class:list={["zx-container", standalone ? "py-20 md:py-28" : "pb-20 pt-6 md:pb-24"]} aria-label="Comparação de consoles">
+  {
+    standalone && (
+      <SectionHeading
+        id="comparacao-titulo"
+        eyebrow="Comparação em destaque"
+        title="Qual console combina com você?"
+        description="PS5, PS5 Pro, Switch 2, Switch OLED, Series X e Series S lado a lado, sem enrolação."
+        align="center"
+      />
+    )
+  }
+
+  <div data-reveal class:list={["overflow-x-auto rounded-2xl border border-zx-line bg-zx-surface", standalone ? "mt-12" : "mt-4"]}>
+    <table data-compare-table class="w-full min-w-[72rem] border-separate border-spacing-0 text-left text-sm">
+      <caption class="sr-only">Comparação entre PlayStation 5, PS5 Pro, Nintendo Switch 2, Switch OLED, Xbox Series X e Series S</caption>
+      <thead>
+        <tr>
+          <th scope="col" class="border-b border-zx-line px-5 py-5">
+            <span class="sr-only">Característica</span>
+          </th>
+          {
+            consoleSpecs.map((spec) => (
+              <th scope="col" class="border-b border-zx-line px-5 py-5 align-top transition-colors duration-200">
+                <span class={`zx-chip-${spec.platform === "playstation" ? "ps" : spec.platform === "nintendo" ? "nt" : "xb"}`}>
+                  {platformLabels[spec.platform]}
+                </span>
+                <p class="zx-title mt-3 text-lg">{spec.name}</p>
+                <p class="mt-1 text-xs font-normal text-zx-muted">{spec.tagline}</p>
+              </th>
+            ))
+          }
+        </tr>
+      </thead>
+      <tbody>
+        {
+          rows.map((row, index) => (
+            <tr class={index % 2 === 0 ? "bg-white/[0.02]" : ""}>
+              <th scope="row" class="whitespace-nowrap px-5 py-4 align-top text-xs font-semibold uppercase tracking-[0.12em] text-zx-muted">
+                {row.label}
+              </th>
+              {consoleSpecs.map((spec) => (
+                <td class="px-5 py-4 align-top leading-6 text-zx-ink/90 transition-colors duration-200">{spec[row.key]}</td>
+              ))}
+            </tr>
+          ))
+        }
+      </tbody>
+    </table>
+  </div>
+
+  {
+    standalone && (
+      <div data-reveal class="mt-8 text-center">
+        <a href="/comparar" class="zx-btn-primary">Comparar consoles</a>
+      </div>
+    )
+  }
+</section>
+
+<script>
+  // Destaque interativo: passa o mouse sobre uma coluna e ela acende.
+  document.querySelectorAll<HTMLTableElement>("[data-compare-table]").forEach((table) => {
+    const cellsByColumn = new Map<number, HTMLElement[]>();
+
+    table.querySelectorAll("tr").forEach((tr) => {
+      tr.querySelectorAll<HTMLElement>("th, td").forEach((cell, index) => {
+        if (index === 0) return;
+        if (!cellsByColumn.has(index)) cellsByColumn.set(index, []);
+        cellsByColumn.get(index)!.push(cell);
+        cell.dataset.col = String(index);
+      });
+    });
+
+    let activeCol = -1;
+    const setColumn = (col: number) => {
+      if (col === activeCol) return;
+      cellsByColumn.get(activeCol)?.forEach((cell) => cell.classList.remove("bg-white/[0.06]"));
+      cellsByColumn.get(col)?.forEach((cell) => cell.classList.add("bg-white/[0.06]"));
+      activeCol = col;
+    };
+
+    table.addEventListener("mouseover", (event) => {
+      const cell = (event.target as HTMLElement).closest<HTMLElement>("[data-col]");
+      setColumn(cell ? Number(cell.dataset.col) : -1);
+    });
+    table.addEventListener("mouseleave", () => setColumn(-1));
+  });
+</script>

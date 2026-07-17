@@ -1,0 +1,21 @@
+---
+// Logo Zexy: símbolo "nexus" (quatro módulos convergindo) + wordmark em Baloo 2.
+interface Props {
+  class?: string;
+}
+
+const { class: className = "h-9" } = Astro.props;
+---
+
+<span class:list={["inline-flex items-center gap-2.5", className]}>
+  <svg viewBox="0 0 140 140" class="h-full w-auto" aria-hidden="true">
+    <g transform="translate(70 70) rotate(45)">
+      <rect x="-48" y="-48" width="42" height="42" rx="11" fill="#7359F8"></rect>
+      <rect x="6" y="-48" width="42" height="42" rx="11" fill="#3FDC81"></rect>
+      <rect x="6" y="6" width="42" height="42" rx="11" fill="#F8F8F2"></rect>
+      <rect x="-48" y="6" width="42" height="42" rx="11" fill="#4D9FFF"></rect>
+    </g>
+    <circle cx="70" cy="70" r="8" fill="#17161F"></circle>
+  </svg>
+  <span class="font-logo text-[1.85em] font-extrabold lowercase leading-none tracking-tight text-zx-ink">zexy</span>
+</span>

@@ -1,0 +1,54 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+import SiteHeader from "../components/zx/SiteHeader.astro";
+import SiteFooter from "../components/zx/SiteFooter.astro";
+
+interface Props {
+  title: string;
+  description: string;
+  image?: string;
+  structuredData?: Record<string, unknown> | Array<Record<string, unknown>>;
+}
+
+const { title, description, image, structuredData } = Astro.props;
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  image={image}
+  structuredData={structuredData}
+  bodyClass="zx-body"
+>
+  <link rel="preconnect" href="https://fonts.googleapis.com" slot="head" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin slot="head" />
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Baloo+2:wght@800&display=swap"
+    slot="head"
+  />
+
+  <a
+    href="#conteudo"
+    class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-full focus:bg-zx-accent focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-[#0b0716]"
+  >
+    Pular para o conteúdo
+  </a>
+
+  <div
+    data-scroll-progress
+    aria-hidden="true"
+    class="fixed inset-x-0 top-0 z-50 h-0.5 origin-left scale-x-0 bg-gradient-to-r from-zx-ps via-zx-accent to-zx-xb"
+  >
+  </div>
+
+  <SiteHeader />
+
+  <main id="conteudo">
+    <slot />
+  </main>
+
+  <SiteFooter />
+
+  <script src="../scripts/zx-motion.ts"></script>
+</BaseLayout>

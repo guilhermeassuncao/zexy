@@ -107,11 +107,10 @@ Regras para `description`:
 # Categorias válidas
 
 - games
-- animes
-- series
 
 Observação:
-"series" representa a editoria pública "series & filmes".
+O site é focado em games e no portal de consoles PlayStation e Xbox. As
+editorias de animes e séries foram descontinuadas.
 
 ---
 

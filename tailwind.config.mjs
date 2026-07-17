@@ -31,7 +31,23 @@ export default {
         "body-end": "#17161f",
         "header-start": "#24222f",
         "header-mid": "#1d1c26",
-        "header-end": "#13121a"
+        "header-end": "#13121a",
+        zx: {
+          bg: "#06070c",
+          surface: "#0c0e16",
+          raised: "#12141f",
+          line: "#1e2130",
+          ink: "#f4f5fa",
+          muted: "#9aa0b8",
+          accent: "#8b74ff",
+          "accent-soft": "#b3a5ff",
+          ps: "#4d9fff",
+          "ps-deep": "#0d2547",
+          xb: "#3fdc81",
+          "xb-deep": "#0c3323",
+          nt: "#ff5a5f",
+          "nt-deep": "#3a1114"
+        }
       },
       boxShadow: {
         header: "0 0.0625rem 0 rgba(255, 255, 255, 0.04), 0 0.375rem 1.125rem rgba(0, 0, 0, 0.35)",
@@ -39,7 +55,9 @@ export default {
       },
       fontFamily: {
         sans: ["system-ui", "-apple-system", "BlinkMacSystemFont", "\"Segoe UI\"", "sans-serif"],
-        orbitron: ["\"Trebuchet MS\"", "Verdana", "\"Segoe UI\"", "sans-serif"]
+        orbitron: ["\"Trebuchet MS\"", "Verdana", "\"Segoe UI\"", "sans-serif"],
+        display: ["\"Space Grotesk\"", "system-ui", "-apple-system", "\"Segoe UI\"", "sans-serif"],
+        logo: ["\"Baloo 2\"", "\"Space Grotesk\"", "system-ui", "sans-serif"]
       },
       backgroundImage: {
         "site-gradient": "linear-gradient(180deg, #2a2835 0%, #22212c 36%, #17161f 100%)",

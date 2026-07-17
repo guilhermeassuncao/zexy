@@ -1,0 +1,41 @@
+---
+import type { Noticia } from "../../data/catalog";
+import { noticiaCategoryLabels } from "../../data/catalog";
+
+interface Props {
+  noticia: Noticia;
+}
+
+const { noticia } = Astro.props;
+const dateLabel = noticia.publishedAt.toLocaleDateString("pt-BR", {
+  day: "2-digit",
+  month: "short",
+  year: "numeric",
+  timeZone: "UTC"
+});
+const chipClass =
+  noticia.category === "playstation" ? "zx-chip-ps" : noticia.category === "xbox" ? "zx-chip-xb" : "zx-chip-ps";
+---
+
+<a href={noticia.href} class="zx-card zx-card-hover group flex h-full flex-col overflow-hidden">
+  <div class="relative aspect-video overflow-hidden bg-zx-raised">
+    <img
+      src={noticia.image}
+      alt={noticia.alt}
+      width="1200"
+      height="675"
+      loading="lazy"
+      decoding="async"
+      class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
+    />
+  </div>
+  <div class="flex flex-1 flex-col gap-3 p-5">
+    <div class="flex items-center justify-between gap-2">
+      <span class={chipClass}>{noticiaCategoryLabels[noticia.category]}</span>
+      <time datetime={noticia.publishedAt.toISOString()} class="text-xs text-zx-muted">{dateLabel}</time>
+    </div>
+    <h3 class="text-base font-semibold leading-snug text-zx-ink">{noticia.title}</h3>
+    <p class="text-sm leading-6 text-zx-muted">{noticia.description}</p>
+    <span class="mt-auto pt-2 text-sm font-semibold text-zx-accent-soft">Ler matéria →</span>
+  </div>
+</a>
